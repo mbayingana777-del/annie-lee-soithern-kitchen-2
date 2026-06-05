@@ -34,7 +34,7 @@ async function saveLeadToSupabase(leadData) {
     .insert([payload]);
 
   if (error) {
-    console.error('SUPABASE ERROR:', error);
+    console.error('SUPABASE ERROR:', JSON.stringify(error, null, 2));
     alert('Error saving request.');
     return false;
   }
