@@ -2,7 +2,7 @@
 // ANNIE LEE'S SHARED CONNECTION SYSTEM
 // ─────────────────────────────────────────────
 
-const supabaseUrl = 'https://mjzqchvmohkiwsiczwwr.supabase.co';
+const supabaseUrl = 'https://eqvnrulpudibuchsdsqi.supabase.co';
 
 const supabaseKey =
 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdm5ydWxwdWRpYnVjaHNkc3FpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxNTc4MTgsImV4cCI6MjA5NTczMzgxOH0.-ChERjuPH6wkiIu8lT_D3kq-Fn857hUaf8k76vAE8xo';
