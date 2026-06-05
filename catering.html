@@ -5,17 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catering | Annie Lee's Southern Kitchen</title>
   <meta name="description" content="Bring authentic soul food to your next event. Annie Lee's Southern Kitchen offers catering for parties, corporate events, and family gatherings in Ambridge, PA." />
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="192x192" href="assets/favicon-192.png" />
-  <!-- Open Graph -->
   <meta property="og:title" content="Catering | Annie Lee's Southern Kitchen" />
-  <meta property="og:description" content="Bring authentic soul food to your next event. Annie Lee's Southern Kitchen offers catering for parties, corporate events, and family gatherings in Ambridge, PA." />
+  <meta property="og:description" content="Bring authentic soul food to your next event." />
   <meta property="og:image" content="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80" />
   <meta property="og:url" content="https://mbayingana777-del.github.io/annie-lee-southern-kitchen/catering.html" />
   <meta property="og:type" content="restaurant" />
-  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -31,14 +28,11 @@
     button { font: inherit; cursor: pointer; border: none; background: none; }
 
     :root {
-      --green: #c8321a; --green-dark: #a02514; --green-light: rgba(200,50,26,.15);
-      --cream: #0f0f0f; --cream-2: #1a1414;
+      --red: #c8321a; --red-dark: #a02514; --red-light: rgba(200,50,26,.15);
       --dark: #0a0a0a; --dark-2: #141414;
       --text: #f0ebe6; --muted: #a89890; --muted-2: #6e5e58;
-      --border: #2a2020; --white: #f5f0ec;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,.4);
+      --border: #2a2020;
       --shadow: 0 8px 32px rgba(0,0,0,.5);
-      --shadow-lg: 0 24px 64px rgba(0,0,0,.6);
       --radius: 16px; --radius-sm: 10px;
       --max: 1280px; --nav-h: 72px;
     }
@@ -53,10 +47,8 @@
       white-space: nowrap; cursor: pointer;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-green { background: var(--green); color: #fff; box-shadow: 0 4px 16px rgba(200,50,26,.4); }
-    .btn-green:hover { background: var(--green-dark); }
-    .btn-dark { background: #1e1e1e; color: #f0ebe6; border: 1px solid #2e2e2e; }
-    .btn-dark:hover { background: #2a2a2a; }
+    .btn-red { background: var(--red); color: #fff; box-shadow: 0 4px 16px rgba(200,50,26,.4); }
+    .btn-red:hover { background: var(--red-dark); }
     .btn-outline-white { background: transparent; color: #f0ebe6; border: 2px solid rgba(240,235,230,.35); }
     .btn-outline-white:hover { background: rgba(240,235,230,.08); border-color: #f0ebe6; }
     .btn-lg { padding: 18px 36px; font-size: 1.05rem; }
@@ -94,7 +86,7 @@
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; }
     .nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: .3s; }
 
-    /* Mobile nav overlay */
+    /* Mobile nav */
     .mobile-nav {
       display: none; position: fixed; inset: 0; z-index: 200;
       background: #0a0a0a; flex-direction: column; padding: 24px;
@@ -110,7 +102,7 @@
     }
     .mobile-nav-bottom { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
 
-    /* HERO */
+    /* ── HERO ── */
     .catering-hero {
       background: #0a0a0a;
       min-height: 60vh;
@@ -144,104 +136,160 @@
       color: rgba(255,255,255,.65); font-size: 1.05rem;
       line-height: 1.7; max-width: 42ch; margin-bottom: 36px;
     }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
     .hero-image {
       position: relative; height: 100%; min-height: 400px;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
-    .hero-image img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-    }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
     .hero-image::after {
       content: '';
       position: absolute; inset: 0;
       background: linear-gradient(90deg, #0a0a0a 0%, transparent 30%);
     }
 
-    /* CONTENT SECTION */
-    .catering-content { padding: 96px 0; }
-    .catering-grid {
-      display: grid; grid-template-columns: 1fr 400px; gap: 64px;
-      align-items: start;
+    /* ── PAN OPTIONS SECTION ── */
+    .pan-section {
+      padding: 96px 0 80px;
+      border-bottom: 1px solid #1a1414;
     }
-    
-    .catering-info h2 {
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-header .kicker { display: block; margin-bottom: 12px; }
+    .section-header h2 {
       font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-      font-size: 2.5rem; text-transform: uppercase; letter-spacing: -.02em;
-      color: #f0ebe6; margin-bottom: 24px;
+      font-size: clamp(2.2rem, 4vw, 3.2rem); text-transform: uppercase;
+      letter-spacing: -.02em; color: #fff; margin-bottom: 16px;
     }
-    .catering-info p {
-      color: #a89890; font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;
-    }
-    
-    .menu-options {
-      margin-top: 48px;
-    }
-    .menu-options h3 {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-      font-size: 1.8rem; text-transform: uppercase; color: #f0ebe6;
-      margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid #2a2020;
-    }
-    
-    .pan-sizes {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px;
+    .section-header p { color: #a89890; font-size: 1.05rem; max-width: 50ch; margin-inline: auto; line-height: 1.7; }
+
+    /* Pan cards */
+    .pan-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+      max-width: 860px; margin-inline: auto; margin-bottom: 72px;
     }
     .pan-card {
-      background: #1a1414; border: 1px solid #2a2020; border-radius: var(--radius);
-      padding: 32px; text-align: center;
-    }
-    .pan-card h4 { font-size: 1.2rem; font-weight: 700; color: #f0ebe6; margin-bottom: 8px; }
-    .pan-card p { color: #a89890; font-size: .9rem; margin-bottom: 16px; }
-    .pan-card .feeds {
-      display: inline-block; background: rgba(200,50,26,.15); color: #e05040;
-      padding: 6px 16px; border-radius: 999px; font-weight: 700; font-size: .85rem;
-    }
-
-    .catering-list {
-      list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-    }
-    .catering-list li {
-      display: flex; align-items: center; gap: 12px;
-      color: #f0ebe6; font-size: 1rem; font-weight: 500;
-      background: #141010; padding: 16px 20px; border-radius: 12px;
-      border: 1px solid #2a2020;
-    }
-    .catering-list li::before {
-      content: '✓'; color: #e05040; font-weight: 900;
-    }
-
-    /* CONTACT FORM / SIDEBAR */
-    .catering-sidebar {
       background: #141010; border: 1px solid #2a2020; border-radius: var(--radius);
-      padding: 40px; position: sticky; top: calc(var(--nav-h) + 24px);
-      box-shadow: var(--shadow);
+      padding: 40px 36px; position: relative; overflow: hidden;
+      transition: border-color .2s, transform .2s;
     }
-    .catering-sidebar h3 {
+    .pan-card:hover { border-color: var(--red); transform: translateY(-4px); }
+    .pan-card.featured {
+      border-color: rgba(200,50,26,.5);
+      background: linear-gradient(135deg, #1a1010 0%, #1f1212 100%);
+    }
+    .pan-card-badge {
+      position: absolute; top: 20px; right: 20px;
+      background: var(--red); color: #fff;
+      font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 999px;
+    }
+    .pan-card-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: rgba(200,50,26,.15); color: #e05040;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 20px;
+    }
+    .pan-card h3 {
       font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-      font-size: 1.8rem; text-transform: uppercase; color: #f0ebe6; margin-bottom: 8px;
+      font-size: 1.7rem; text-transform: uppercase; color: #fff;
+      margin-bottom: 6px;
     }
-    .catering-sidebar p { color: #a89890; font-size: .9rem; margin-bottom: 24px; line-height: 1.5; }
-    
-    .contact-methods {
-      display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px;
+    .pan-card .feeds {
+      display: inline-block; background: rgba(200,50,26,.12); color: #e05040;
+      padding: 4px 14px; border-radius: 999px; font-weight: 700; font-size: .8rem;
+      margin-bottom: 16px;
+    }
+    .pan-card .pan-desc {
+      color: #a89890; font-size: .95rem; line-height: 1.6; margin-bottom: 28px;
+    }
+    .pan-pricing {
+      border-top: 1px solid #2a2020; padding-top: 24px;
+    }
+    .pan-pricing-label {
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #6e5e58; margin-bottom: 12px;
+    }
+    .price-rows { display: flex; flex-direction: column; gap: 8px; }
+    .price-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 14px; border-radius: 10px; background: #0f0f0f;
+    }
+    .price-row-name { font-size: .9rem; color: #c8b8b0; font-weight: 500; }
+    .price-row-amount { font-size: 1rem; font-weight: 700; color: #f0ebe6; }
+
+    /* Menu items grid */
+    .items-section {
+      margin-top: 16px;
+    }
+    .items-section h3 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 1.5rem; text-transform: uppercase; color: #f0ebe6;
+      text-align: center; margin-bottom: 24px;
+      letter-spacing: -.01em;
+    }
+    .catering-items {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+      max-width: 900px; margin-inline: auto;
+    }
+    .item-pill {
+      display: flex; align-items: center; gap: 10px;
+      background: #141010; border: 1px solid #2a2020; border-radius: 12px;
+      padding: 14px 18px; font-size: .9rem; font-weight: 600; color: #f0ebe6;
+      transition: border-color .18s, background .18s;
+    }
+    .item-pill:hover { border-color: var(--red); background: #1a1414; }
+    .item-pill::before { content: '✓'; color: #e05040; font-size: .8rem; flex-shrink: 0; }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      padding: 96px 0;
+      background: #0a0a0a;
+    }
+    .form-wrap {
+      max-width: 780px; margin-inline: auto;
+    }
+    .form-card {
+      background: #141010; border: 1px solid #2a2020; border-radius: 24px;
+      padding: 56px 64px;
+    }
+    .form-card-header { text-align: center; margin-bottom: 40px; }
+    .form-card-header h2 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 2.4rem; text-transform: uppercase; color: #fff;
+      margin-bottom: 10px;
+    }
+    .form-card-header p { color: #a89890; font-size: 1rem; line-height: 1.6; }
+
+    .contact-strip {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 36px;
     }
     .contact-method {
-      display: flex; align-items: center; gap: 16px;
-      background: #1a1414; padding: 16px; border-radius: 12px;
+      display: flex; align-items: center; gap: 14px;
+      background: #1a1414; padding: 16px 20px; border-radius: 12px;
       border: 1px solid #2a2020; text-decoration: none; transition: border-color .2s;
     }
-    .contact-method:hover { border-color: var(--green); }
+    .contact-method:hover { border-color: var(--red); }
     .contact-icon {
-      width: 40px; height: 40px; border-radius: 50%; background: rgba(200,50,26,.15);
-      color: #e05040; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+      width: 38px; height: 38px; border-radius: 50%; background: rgba(200,50,26,.15);
+      color: #e05040; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+      flex-shrink: 0;
     }
-    .contact-text { display: flex; flex-direction: column; }
-    .contact-text span { font-size: .75rem; color: #a89890; text-transform: uppercase; letter-spacing: .05em; font-weight: 700; }
-    .contact-text strong { font-size: 1.05rem; color: #f0ebe6; }
+    .contact-text span { font-size: .72rem; color: #a89890; text-transform: uppercase; letter-spacing: .05em; font-weight: 700; display: block; }
+    .contact-text strong { font-size: .95rem; color: #f0ebe6; }
 
-    .form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
-    .form-field label { font-size: .8rem; font-weight: 700; color: #a89890; letter-spacing: .06em; text-transform: uppercase; }
+    .form-divider {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 32px;
+    }
+    .form-divider::before, .form-divider::after {
+      content: ''; flex: 1; height: 1px; background: #2a2020;
+    }
+    .form-divider span { color: #6e5e58; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; white-space: nowrap; }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { font-size: .75rem; font-weight: 700; color: #a89890; letter-spacing: .06em; text-transform: uppercase; }
     .form-field input, .form-field select, .form-field textarea {
       background: #0f0f0f; border: 1.5px solid #3a2a28;
       border-radius: 10px; padding: 14px 16px;
@@ -251,7 +299,15 @@
     .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
       border-color: #c8321a; box-shadow: 0 0 0 3px rgba(200,50,26,.15);
     }
-    .form-field textarea { resize: vertical; min-height: 100px; }
+    .form-field select option { background: #1a1414; }
+    .form-field textarea { resize: vertical; min-height: 110px; }
+    .form-submit-row { margin-top: 24px; }
+    .form-submit-row .btn { width: 100%; padding: 18px; font-size: 1.05rem; }
+
+    #form-success { display: none; text-align: center; padding: 48px 0; }
+    #form-success .success-icon { font-size: 3.5rem; margin-bottom: 20px; }
+    #form-success h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; color: #f0ebe6; margin-bottom: 8px; }
+    #form-success p { color: #a89890; font-size: .95rem; }
 
     /* FOOTER */
     footer { background: #0a0a0a; padding: 80px 0 40px; border-top: 1px solid #1a1414; }
@@ -260,18 +316,17 @@
       gap: 48px; margin-bottom: 48px;
     }
     .footer-brand .nav-logo-text { color: #fff; font-size: 1.4rem; margin-bottom: 14px; display: block; }
-    .footer-brand p { font-size: .875rem; line-height: 1.7; max-width: 30ch; }
+    .footer-brand p { font-size: .875rem; color: #a89890; line-height: 1.7; max-width: 30ch; }
     .footer-col h4 { color: #fff; font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul a { font-size: .875rem; transition: color .18s; }
+    .footer-col ul a { font-size: .875rem; color: #a89890; transition: color .18s; }
     .footer-col ul a:hover { color: #fff; }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.08); padding-top: 28px;
       display: flex; justify-content: space-between; align-items: center;
       flex-wrap: wrap; gap: 12px;
     }
-    .footer-bottom p { font-size: .8rem; }
+    .footer-bottom p { font-size: .8rem; color: #6e5e58; }
     .footer-social { display: flex; gap: 12px; }
     .footer-social a {
       width: 36px; height: 36px; border-radius: 50%;
@@ -280,12 +335,10 @@
       color: rgba(255,255,255,.6); font-size: .85rem;
       transition: background .18s, color .18s;
     }
-    .footer-social a:hover { background: var(--green); color: #fff; }
+    .footer-social a:hover { background: var(--red); color: #fff; }
 
     /* RESPONSIVE */
     @media (max-width: 1024px) {
-      .catering-grid { grid-template-columns: 1fr; }
-      .catering-sidebar { position: static; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
@@ -293,13 +346,20 @@
       .catering-hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-copy { padding: 56px 24px 40px; }
       .hero-copy h1 { font-size: 3rem; }
-      .hero-image { min-height: 300px; }
-      .hero-image::after { background: linear-gradient(180deg, var(--dark) 0%, transparent 30%); }
-      .pan-sizes { grid-template-columns: 1fr; }
-      .catering-list { grid-template-columns: 1fr; }
+      .hero-image { min-height: 280px; }
+      .hero-image::after { background: linear-gradient(180deg, #0a0a0a 0%, transparent 30%); }
       .nav-links, .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
+      .pan-cards { grid-template-columns: 1fr; max-width: 480px; }
+      .catering-items { grid-template-columns: 1fr 1fr; }
+      .form-card { padding: 40px 28px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-field.full { grid-column: 1; }
+      .contact-strip { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 480px) {
+      .catering-items { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -312,16 +372,16 @@
         <img src="assets/logo.png" alt="Annie Lee's Southern Kitchen logo" onerror="this.style.display='none'" />
         <span class="nav-logo-text">Annie Lee's<br>Southern Kitchen</span>
       </a>
-    <ul class="nav-links">
-  <li><a href="index.html">HOME</a></li>
-  <li><a href="menu.html">MENU</a></li>
-  <li><a href="foodtruck.html">FOOD TRUCK</a></li>
-  <li><a href="catering.html" class="active">CATERING</a></li>
-  <li><a href="index.html#location">LOCATION</a></li>
-</ul>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="menu.html">MENU</a></li>
+        <li><a href="foodtruck.html">FOOD TRUCK</a></li>
+        <li><a href="catering.html" class="active">CATERING</a></li>
+        <li><a href="index.html#location">LOCATION</a></li>
+      </ul>
       <div class="nav-cta">
         <a href="tel:+17243850522" class="nav-phone">📞 724-385-0522</a>
-        <a href="menu.html" class="btn btn-green" style="padding:10px 20px;font-size:.875rem;">Order Now</a>
+        <a href="menu.html" class="btn btn-red" style="padding:10px 20px;font-size:.875rem;">Order Now</a>
       </div>
       <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -335,77 +395,142 @@
       <span class="nav-logo-text" style="color:#fff">Annie Lee's Southern Kitchen</span>
       <button class="mobile-nav-close" id="nav-close">✕</button>
     </div>
-   <ul class="mobile-nav-links">
-  <li><a href="index.html" onclick="closeMobileNav()">Home</a></li>
-  <li><a href="menu.html" onclick="closeMobileNav()">Menu</a></li>
-  <li><a href="foodtruck.html" onclick="closeMobileNav()">Food Truck</a></li>
-  <li><a href="catering.html" onclick="closeMobileNav()">Catering</a></li>
-  <li><a href="index.html#location" onclick="closeMobileNav()">Location</a></li>
-</ul>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" onclick="closeMobileNav()">Home</a></li>
+      <li><a href="menu.html" onclick="closeMobileNav()">Menu</a></li>
+      <li><a href="foodtruck.html" onclick="closeMobileNav()">Food Truck</a></li>
+      <li><a href="catering.html" onclick="closeMobileNav()">Catering</a></li>
+      <li><a href="index.html#location" onclick="closeMobileNav()">Location</a></li>
+    </ul>
     <div class="mobile-nav-bottom">
-      <a href="menu.html" class="btn btn-green btn-lg">Order Now</a>
+      <a href="menu.html" class="btn btn-red btn-lg">Order Now</a>
       <a href="tel:+17243850522" class="btn btn-outline-white btn-lg">Call 724-385-0522</a>
     </div>
   </div>
-  
-  <!-- HERO -->
+
+  <!-- ① HERO -->
   <section class="catering-hero">
     <div class="hero-copy">
       <span class="kicker">Catering &amp; Events</span>
       <h1>Bring the soul<br><em>to your event.</em></h1>
       <p class="hero-sub">From family reunions to corporate lunches, we provide authentic, hot, and fresh soul food that will have everyone coming back for seconds.</p>
-      <a href="#inquire" class="btn btn-green btn-lg">Inquire Now</a>
+      <div class="hero-actions">
+        <a href="#inquire" class="btn btn-red btn-lg">Get a Quote</a>
+        <a href="tel:+17243850522" class="btn btn-outline-white btn-lg">Call Us</a>
+      </div>
     </div>
     <div class="hero-image">
       <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80" alt="Catering spread of soul food" />
     </div>
   </section>
 
-  <!-- CONTENT -->
-  <section class="catering-content">
+  <!-- ② PAN OPTIONS + PRICES -->
+  <section class="pan-section">
     <div class="container">
-      <div class="catering-grid">
-        
-        <div class="catering-info">
-          <h2>Food that brings people together.</h2>
-          <p>When you cater with Annie Lee's Southern Kitchen, you're not just getting food—you're getting a home-cooked experience. We handle the cooking so you can focus on your guests.</p>
-          <p>We offer flexible options for events of all sizes. Whether you need a few pans of mac &amp; cheese for a potluck or a full spread for a wedding reception, we've got you covered.</p>
-          
-          <div class="menu-options">
-            <h3>Catering Options</h3>
-            
-            <div class="pan-sizes">
-              <div class="pan-card">
-                <h4>Half Pans</h4>
-                <p>Perfect for smaller gatherings or adding variety to your spread.</p>
-                <span class="feeds">Feeds 10-15 people</span>
+      <div class="section-header">
+        <span class="kicker">Catering Options</span>
+        <h2>Feed the whole crowd.</h2>
+        <p>We offer half and full pan options for events of any size — from a small gathering to a wedding reception.</p>
+      </div>
+
+      <div class="pan-cards">
+        <!-- Half Pan -->
+        <div class="pan-card">
+          <div class="pan-card-icon">½</div>
+          <h3>Half Pan</h3>
+          <span class="feeds">Feeds 10–15 people</span>
+          <p class="pan-desc">Great for smaller gatherings, potlucks, or adding variety to your spread. Easy to mix and match multiple items.</p>
+          <div class="pan-pricing">
+            <div class="pan-pricing-label">Sample pricing</div>
+            <div class="price-rows">
+              <div class="price-row">
+                <span class="price-row-name">Baked Mac &amp; Cheese</span>
+                <span class="price-row-amount">$45</span>
               </div>
-              <div class="pan-card">
-                <h4>Full Pans</h4>
-                <p>The best value for large parties, corporate events, and weddings.</p>
-                <span class="feeds">Feeds 25-30 people</span>
+              <div class="price-row">
+                <span class="price-row-name">Collard Greens</span>
+                <span class="price-row-amount">$40</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row-name">Candied Yams</span>
+                <span class="price-row-amount">$40</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row-name">Crispy Wings</span>
+                <span class="price-row-amount">$65</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row-name">Slow-Smoked Ribs</span>
+                <span class="price-row-amount">$80</span>
               </div>
             </div>
-
-            <h3>Popular Catering Items</h3>
-            <ul class="catering-list">
-              <li>Crispy Whole Wings</li>
-              <li>Slow-Smoked Ribs</li>
-              <li>Fried Fish</li>
-              <li>Baked Mac &amp; Cheese</li>
-              <li>Collard Greens</li>
-              <li>Candied Yams</li>
-              <li>Potato Salad</li>
-              <li>Cornbread</li>
-            </ul>
           </div>
         </div>
 
-        <div class="catering-sidebar" id="inquire">
-          <h3>Ready to order?</h3>
-          <p>Contact us directly to discuss your event, customize your menu, and get a quote.</p>
-          
-          <div class="contact-methods">
+        <!-- Full Pan -->
+        <div class="pan-card featured">
+          <div class="pan-card-badge">Best Value</div>
+          <div class="pan-card-icon">⬛</div>
+          <h3>Full Pan</h3>
+          <span class="feeds">Feeds 25–30 people</span>
+          <p class="pan-desc">The right choice for large parties, corporate events, and weddings. Maximum impact, minimal hassle.</p>
+          <div class="pan-pricing">
+            <div class="pan-pricing-label">Sample pricing</div>
+            <div class="price-rows">
+              <div class="price-row">
+                <span class="price-row-name">Baked Mac &amp; Cheese</span>
+                <span class="price-row-amount">$80</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row-name">Collard Greens</span>
+                <span class="price-row-amount">$70</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row-name">Candied Yams</span>
+                <span class="price-row-amount">$70</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row-name">Crispy Wings</span>
+                <span class="price-row-amount">$120</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row-name">Slow-Smoked Ribs</span>
+                <span class="price-row-amount">$150</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Popular Items -->
+      <div class="items-section">
+        <h3>Popular catering items</h3>
+        <div class="catering-items">
+          <div class="item-pill">Crispy Whole Wings</div>
+          <div class="item-pill">Slow-Smoked Ribs</div>
+          <div class="item-pill">Fried Fish</div>
+          <div class="item-pill">Baked Mac &amp; Cheese</div>
+          <div class="item-pill">Collard Greens</div>
+          <div class="item-pill">Candied Yams</div>
+          <div class="item-pill">Potato Salad</div>
+          <div class="item-pill">Cornbread</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ FORM -->
+  <section class="form-section" id="inquire">
+    <div class="container">
+      <div class="form-wrap">
+        <div class="form-card">
+          <div class="form-card-header">
+            <span class="kicker">Let's make it happen</span>
+            <h2>Request a catering quote</h2>
+            <p>Contact us directly or fill out the form below and we'll be in touch to discuss your event.</p>
+          </div>
+
+          <div class="contact-strip">
             <a href="tel:+17243850522" class="contact-method">
               <div class="contact-icon">📞</div>
               <div class="contact-text">
@@ -422,55 +547,56 @@
             </div>
           </div>
 
-          <!-- 
-            FORMSPREE SETUP: Replace YOUR_FORM_ID below with the ID from formspree.io
-            See setup instructions at the bottom of this file.
-          -->
+          <div class="form-divider"><span>or send us a message</span></div>
+
           <form id="catering-form" onsubmit="handleCateringSubmitGHL(event)">
-            <!-- Hidden fields so Formspree email is readable -->
             <input type="hidden" name="_subject" value="New Catering Inquiry — Annie Lee's Southern Kitchen" />
             <input type="hidden" name="_replyto" id="_replyto" value="" />
 
-            <div class="form-field">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" required placeholder="Your name" />
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="Full name" />
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required placeholder="(724) 000-0000" />
+              </div>
+              <div class="form-field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="you@example.com" oninput="document.getElementById('_replyto').value=this.value" />
+              </div>
+              <div class="form-field">
+                <label for="date">Event Date</label>
+                <input type="date" id="date" name="event_date" required />
+              </div>
+              <div class="form-field full">
+                <label for="guests">Estimated Guests</label>
+                <select id="guests" name="guest_count" required>
+                  <option value="" disabled selected>Select party size</option>
+                  <option value="10-20">10 – 20 people</option>
+                  <option value="20-50">20 – 50 people</option>
+                  <option value="50-100">50 – 100 people</option>
+                  <option value="100+">100+ people</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="details">Event Details &amp; Menu Ideas</label>
+                <textarea id="details" name="details" placeholder="Tell us about your event and what you'd like to order..."></textarea>
+              </div>
             </div>
-            <div class="form-field">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required placeholder="you@example.com" oninput="document.getElementById('_replyto').value=this.value" />
+
+            <div class="form-submit-row">
+              <button type="submit" class="btn btn-red">Send Catering Request</button>
             </div>
-            <div class="form-field">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" required placeholder="(724) 000-0000" />
-            </div>
-            <div class="form-field">
-              <label for="date">Event Date</label>
-              <input type="date" id="date" name="event_date" required />
-            </div>
-            <div class="form-field">
-              <label for="guests">Estimated Guests</label>
-              <select id="guests" name="guest_count" required>
-                <option value="" disabled selected>Select party size</option>
-                <option value="10-20">10 - 20 people</option>
-                <option value="20-50">20 - 50 people</option>
-                <option value="50-100">50 - 100 people</option>
-                <option value="100+">100+ people</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="details">Event Details &amp; Menu Ideas</label>
-              <textarea id="details" name="details" placeholder="Tell us a bit about your event and what you'd like to order..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-green" style="width:100%; padding:16px; margin-top:8px;">Send Catering Request</button>
           </form>
-          
-          <div id="form-success" style="display:none; text-align:center; padding:32px 0;">
-            <div style="font-size:3rem; margin-bottom:16px;">✅</div>
-            <h4 style="font-family:'Barlow Condensed', sans-serif; font-size:1.5rem; color:#f0ebe6; margin-bottom:8px;">Request Sent!</h4>
-            <p style="color:#a89890; font-size:.9rem;">We'll be in touch shortly to discuss your catering order.</p>
+
+          <div id="form-success">
+            <div class="success-icon">✅</div>
+            <h4>Request Sent!</h4>
+            <p>We'll be in touch shortly to discuss your catering order.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -522,20 +648,22 @@
   </footer>
 
   <script>
-    // ── Mobile nav
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobile-nav');
-    const navClose = document.getElementById('nav-close');
+    const navClose  = document.getElementById('nav-close');
     hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
     navClose.addEventListener('click', () => mobileNav.classList.remove('open'));
     function closeMobileNav() { mobileNav.classList.remove('open'); }
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('site-nav').classList.toggle('scrolled', window.scrollY > 10);
+    });
 
     function showSuccess() {
       document.getElementById('catering-form').style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
     }
   </script>
-  <!-- Lead Capture & CRM Integration -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="lead-capture.js"></script>
 </body>
