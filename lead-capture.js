@@ -5,7 +5,7 @@
 const supabaseUrl = 'https://mjzqchvmohkiwsiczwwr.supabase.co';
 
 const supabaseKey =
-'public-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1qenFjaHZtb2hraXdzaWN6d3dyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2OTk4MDYsImV4cCI6MjA5NDI3NTgwNn0.6Eo27LHKncx1_onHH71rLXjOZsgA9dy0wQBVM-WEY3M';
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdm5ydWxwdWRpYnVjaHNkc3FpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxNTc4MTgsImV4cCI6MjA5NTczMzgxOH0.-ChERjuPH6wkiIu8lT_D3kq-Fn857hUaf8k76vAE8xo';
 
 const supabaseClient = supabase.createClient(
   supabaseUrl,
