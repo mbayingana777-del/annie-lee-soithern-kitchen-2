@@ -1011,7 +1011,23 @@
   </script>
 
   <!-- Lead Capture & CRM Integration -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="lead-capture.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const supabaseUrl = 'https://mjzqchvmohkiwsiczwwr.supabase.co'
+
+const supabaseKey = 'public-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1qenFjaHZtb2hraXdzaWN6d3dyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2OTk4MDYsImV4cCI6MjA5NDI3NTgwNn0.6Eo27LHKncx1_onHH71rLXjOZsgA9dy0wQBVM-WEY3M'
+
+const supabaseClient = supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+)
+
+console.log('Supabase connected!')
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="lead-capture.js"></script>
 </body>
 </html>

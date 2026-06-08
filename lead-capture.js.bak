@@ -30,7 +30,7 @@ async function saveLeadToSupabase(leadData) {
   };
 
   const { data, error } = await supabaseClient
-    .from('catering_leads')
+    .from('food_truck_bookings')
     .insert([payload]);
 
   if (error) {
