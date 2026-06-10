@@ -440,8 +440,8 @@
       if (!window.supabaseClient) return [];
 
       const { data, error } = await window.supabaseClient
-        .from('catering_leads')
-        .select('name, phone, email, event_date, message, source');
+        .from('food_truck_bookings')
+        .select('customer_name, name, phone, email, event_date, event_type, guest_count, event_address, budget, special_notes, message, status, created_at').order('created_at', { ascending: false });
 
       if (error) {
         console.error('SUPABASE CRM LOAD ERROR:', error);
@@ -449,12 +449,12 @@
       }
 
       const supabaseLeads = (data || []).map(lead => ({
-        name: lead.name || '',
+        name: lead.customer_name || lead.name || '',
         email: lead.email || '',
         phone: lead.phone || '',
-        source: lead.source || 'Supabase',
-        notes: lead.message || '',
-        date: lead.event_date || new Date().toISOString()
+        source: lead.event_type || 'Website',
+        notes: lead.special_notes || lead.message || '',
+        date: lead.event_date || lead.created_at || new Date().toISOString()
       }));
 
       if (supabaseLeads.length) {
