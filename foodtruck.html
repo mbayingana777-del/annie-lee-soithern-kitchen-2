@@ -26,13 +26,13 @@
         <img src="assets/logo.png" alt="Annie Lee's Southern Kitchen logo" onerror="this.style.display='none'" />
         <span class="nav-logo-text">Annie Lee's<br>Southern Kitchen</span>
       </a>
-    <ul class="nav-links">
-  <li><a href="index.html">HOME</a></li>
-  <li><a href="menu.html">MENU</a></li>
-  <li><a href="foodtruck.html" class="active">FOOD TRUCK</a></li>
-  <li><a href="catering.html">CATERING</a></li>
-  <li><a href="index.html#location">LOCATION</a></li>
-</ul>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="menu.html">MENU</a></li>
+        <li><a href="foodtruck.html" class="active">FOOD TRUCK</a></li>
+        <li><a href="catering.html">CATERING</a></li>
+        <li><a href="index.html#location">LOCATION</a></li>
+      </ul>
       <div class="nav-cta">
         <a href="tel:+17243850522" class="nav-phone">📞 724-385-0522</a>
         <a href="menu.html" class="btn btn-green" style="padding:10px 20px;font-size:.875rem;">Order Now</a>
@@ -49,13 +49,13 @@
       <span class="nav-logo-text" style="color:#fff">Annie Lee's Southern Kitchen</span>
       <button class="mobile-nav-close" id="nav-close">✕</button>
     </div>
-   <ul class="mobile-nav-links">
-  <li><a href="index.html" onclick="closeMobileNav()">Home</a></li>
-  <li><a href="menu.html" onclick="closeMobileNav()">Menu</a></li>
-  <li><a href="foodtruck.html" onclick="closeMobileNav()">Food Truck</a></li>
-  <li><a href="catering.html" onclick="closeMobileNav()">Catering</a></li>
-  <li><a href="index.html#location" onclick="closeMobileNav()">Location</a></li>
-</ul>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" onclick="closeMobileNav()">Home</a></li>
+      <li><a href="menu.html" onclick="closeMobileNav()">Menu</a></li>
+      <li><a href="foodtruck.html" onclick="closeMobileNav()">Food Truck</a></li>
+      <li><a href="catering.html" onclick="closeMobileNav()">Catering</a></li>
+      <li><a href="index.html#location" onclick="closeMobileNav()">Location</a></li>
+    </ul>
     <div class="mobile-nav-bottom">
       <a href="menu.html" class="btn btn-green btn-lg">Order Now</a>
       <a href="tel:+17243850522" class="btn btn-outline-white btn-lg">Call 724-385-0522</a>
@@ -64,7 +64,7 @@
 
   <section class="truck-hero" id="home">
     <div class="hero-copy reveal">
-      <div class="hero-eyebrow">Food Truck Schedule & Bookings</div>
+      <div class="hero-eyebrow">Food Truck Schedule &amp; Bookings</div>
       <h1>Book Annie Lee's<br><em>Food Truck</em></h1>
       <p class="hero-sub">See where we'll be next, explore our food truck menu, and reserve Annie Lee's Southern Kitchen for your next event.</p>
       <div class="hero-actions"><a href="#book" class="btn btn-orange btn-lg">Book The Food Truck</a><a href="#schedule" class="btn btn-outline-white btn-lg">View Schedule</a></div>
@@ -129,12 +129,14 @@
 
   <div class="mobile-bar"><a href="#schedule" class="btn btn-dark">Schedule</a><a href="#book" class="btn btn-orange">Book Truck</a></div>
 
-  <script>
-    const hamburger=document.getElementById('hamburger'),mobileNav=document.getElementById('mobile-nav'),navClose=document.getElementById('nav-close'),siteNav=document.getElementById('site-nav');hamburger?.addEventListener('click',()=>mobileNav.classList.add('open'));navClose?.addEventListener('click',()=>mobileNav.classList.remove('open'));function closeMobileNav(){mobileNav.classList.remove('open')}window.addEventListener('scroll',()=>{if(window.scrollY>20){siteNav.classList.add('scrolled')}else{siteNav.classList.remove('scrolled')}});
-    document.getElementById('booking-form')?.addEventListener('submit',async function(e){e.preventDefault();const formData={name:document.getElementById('event-name').value,phone:document.getElementById('event-phone').value,email:document.getElementById('event-email').value,type:document.getElementById('event-type').value,guests:document.getElementById('event-guests').value,date:document.getElementById('event-date').value,time:document.getElementById('event-time').value,location:document.getElementById('event-location').value,budget:document.getElementById('event-budget').value,notes:document.getElementById('event-notes').value};const message=`\nFood Truck Booking Request\n\nEvent Type: ${formData.type}\nGuests: ${formData.guests}\nDate: ${formData.date}\nTime: ${formData.time}\nLocation: ${formData.location}\nBudget: ${formData.budget||'Not provided'}\n\nNotes:\n${formData.notes||'None'}\n`;if(typeof saveLeadToSupabase==='function'){const success=await saveLeadToSupabase({name:formData.name,customer_name:formData.name,phone:formData.phone,email:formData.email,event_type:formData.type,event_date:formData.date,event_time:formData.time,event_address:formData.location,guest_count:formData.guests,budget:formData.budget,special_notes:formData.notes});if(!success)return}else{console.warn('saveLeadToSupabase is not available. Check lead-capture.js.')}const successBox=document.getElementById('form-success');successBox?.classList.add('show');this.reset();setTimeout(()=>successBox?.classList.remove('show'),7000)});
-    const observer=new IntersectionObserver(function(entries){entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible')}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-  </script>
+  <!-- ✅ FIX: Supabase and lead-capture load FIRST so saveLeadToSupabase is defined before the form handler runs -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="lead-capture.js"></script>
+
+  <script>
+    const hamburger=document.getElementById('hamburger'),mobileNav=document.getElementById('mobile-nav'),navClose=document.getElementById('nav-close'),siteNav=document.getElementById('site-nav');hamburger?.addEventListener('click',()=>mobileNav.classList.add('open'));navClose?.addEventListener('click',()=>mobileNav.classList.remove('open'));function closeMobileNav(){mobileNav.classList.remove('open')}window.addEventListener('scroll',()=>{if(window.scrollY>20){siteNav.classList.add('scrolled')}else{siteNav.classList.remove('scrolled')}});
+    document.getElementById('booking-form')?.addEventListener('submit',async function(e){e.preventDefault();const formData={name:document.getElementById('event-name').value,phone:document.getElementById('event-phone').value,email:document.getElementById('event-email').value,type:document.getElementById('event-type').value,guests:document.getElementById('event-guests').value,date:document.getElementById('event-date').value,time:document.getElementById('event-time').value,location:document.getElementById('event-location').value,budget:document.getElementById('event-budget').value,notes:document.getElementById('event-notes').value};if(typeof saveLeadToSupabase==='function'){const success=await saveLeadToSupabase({name:formData.name,customer_name:formData.name,phone:formData.phone,email:formData.email,event_type:formData.type,event_date:formData.date,event_time:formData.time,event_address:formData.location,guest_count:formData.guests,budget:formData.budget,special_notes:formData.notes});if(!success)return}else{console.warn('saveLeadToSupabase is not available. Check lead-capture.js.')}const successBox=document.getElementById('form-success');successBox?.classList.add('show');this.reset();setTimeout(()=>successBox?.classList.remove('show'),7000)});
+    const observer=new IntersectionObserver(function(entries){entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible')}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
 </body>
 </html>
