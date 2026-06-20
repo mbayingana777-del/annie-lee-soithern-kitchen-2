@@ -11,7 +11,7 @@
   <meta property="og:title" content="Catering | Annie Lee's Southern Kitchen" />
   <meta property="og:description" content="Bring authentic soul food to your next event." />
   <meta property="og:image" content="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80" />
-  <meta property="og:url" content="https://mbayingana777-del.github.io/annie-lee-southern-kitchen/catering.html" />
+  <meta property="og:url" content="https://mbayingana777-del.github.io/annie-lee-soithern-kitchen-2/catering.html" />
   <meta property="og:type" content="restaurant" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,10 +19,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-      background: #0f0f0f; color: #f0ebe6; overflow-x: hidden;
-    }
+    body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; background: #0f0f0f; color: #f0ebe6; overflow-x: hidden; }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
     button { font: inherit; cursor: pointer; border: none; background: none; }
@@ -39,13 +36,7 @@
 
     .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
 
-    /* BUTTONS */
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 14px 28px; border-radius: 999px; font-weight: 700; font-size: .95rem;
-      transition: transform .18s, box-shadow .18s, background .18s;
-      white-space: nowrap; cursor: pointer;
-    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 999px; font-weight: 700; font-size: .95rem; transition: transform .18s, box-shadow .18s, background .18s; white-space: nowrap; cursor: pointer; }
     .btn:hover { transform: translateY(-2px); }
     .btn-red { background: var(--red); color: #fff; box-shadow: 0 4px 16px rgba(200,50,26,.4); }
     .btn-red:hover { background: var(--red-dark); }
@@ -53,31 +44,14 @@
     .btn-outline-white:hover { background: rgba(240,235,230,.08); border-color: #f0ebe6; }
     .btn-lg { padding: 18px 36px; font-size: 1.05rem; }
 
-    /* NAV */
-    .site-nav {
-      position: sticky; top: 0; z-index: 100;
-      background: #0a0a0a; height: var(--nav-h);
-      display: flex; align-items: center;
-      transition: box-shadow .3s;
-    }
+    .site-nav { position: sticky; top: 0; z-index: 100; background: #0a0a0a; height: var(--nav-h); display: flex; align-items: center; transition: box-shadow .3s; }
     .site-nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,.7); border-bottom: 1px solid #2a1a16; }
-    .nav-inner {
-      width: min(var(--max), calc(100% - 40px)); margin-inline: auto;
-      display: flex; align-items: center; justify-content: space-between; gap: 32px;
-    }
+    .nav-inner { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .nav-logo img { height: 42px; width: auto; }
-    .nav-logo-text {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-      font-size: 1.3rem; letter-spacing: .04em; text-transform: uppercase;
-      color: #fff; line-height: 1.1;
-    }
+    .nav-logo-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.3rem; letter-spacing: .04em; text-transform: uppercase; color: #fff; line-height: 1.1; }
     .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
-    .nav-links a {
-      color: rgba(240,235,230,.65); font-size: .9rem; font-weight: 600;
-      padding: 8px 14px; border-radius: 8px; transition: color .18s, background .18s;
-      letter-spacing: .02em;
-    }
+    .nav-links a { color: rgba(240,235,230,.65); font-size: .9rem; font-weight: 600; padding: 8px 14px; border-radius: 8px; transition: color .18s, background .18s; letter-spacing: .02em; }
     .nav-links a:hover { color: #f0ebe6; background: rgba(200,50,26,.15); }
     .nav-links a.active { color: #e05040; }
     .nav-cta { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
@@ -86,219 +60,79 @@
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; }
     .nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: .3s; }
 
-    /* Mobile nav */
-    .mobile-nav {
-      display: none; position: fixed; inset: 0; z-index: 200;
-      background: #0a0a0a; flex-direction: column; padding: 24px;
-    }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 200; background: #0a0a0a; flex-direction: column; padding: 24px; }
     .mobile-nav.open { display: flex; }
     .mobile-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
     .mobile-nav-close { color: #fff; font-size: 1.5rem; cursor: pointer; padding: 8px; }
     .mobile-nav-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .mobile-nav-links a {
-      display: block; color: #fff; font-size: 1.6rem;
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
-      text-transform: uppercase; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.08);
-    }
+    .mobile-nav-links a { display: block; color: #fff; font-size: 1.6rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; text-transform: uppercase; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
     .mobile-nav-bottom { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
 
-    /* ── HERO ── */
-    .catering-hero {
-      background: #0a0a0a;
-      min-height: 60vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
-      border-bottom: 1px solid #2a1a16;
-    }
-    .catering-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 30% 50%, rgba(200,50,26,.18), transparent 60%);
-      pointer-events: none;
-    }
-    .hero-copy {
-      padding: 80px 64px 80px 80px;
-      position: relative; z-index: 2;
-    }
+    .catering-hero { background: #0a0a0a; min-height: 60vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; overflow: hidden; position: relative; border-bottom: 1px solid #2a1a16; }
+    .catering-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(200,50,26,.18), transparent 60%); pointer-events: none; }
+    .hero-copy { padding: 80px 64px 80px 80px; position: relative; z-index: 2; }
     .kicker { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #e05040; display: block; margin-bottom: 12px; }
-    .hero-copy h1 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900; font-size: clamp(3rem, 5vw, 4.5rem);
-      line-height: .92; letter-spacing: -.02em;
-      text-transform: uppercase; color: #fff;
-      margin-bottom: 24px;
-    }
+    .hero-copy h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(3rem, 5vw, 4.5rem); line-height: .92; letter-spacing: -.02em; text-transform: uppercase; color: #fff; margin-bottom: 24px; }
     .hero-copy h1 em { font-style: normal; color: #e05040; }
-    .hero-sub {
-      color: rgba(255,255,255,.65); font-size: 1.05rem;
-      line-height: 1.7; max-width: 42ch; margin-bottom: 36px;
-    }
+    .hero-sub { color: rgba(255,255,255,.65); font-size: 1.05rem; line-height: 1.7; max-width: 42ch; margin-bottom: 36px; }
     .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-    .hero-image {
-      position: relative; height: 100%; min-height: 400px;
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-    }
+    .hero-image { position: relative; height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-    .hero-image::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(90deg, #0a0a0a 0%, transparent 30%);
-    }
+    .hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #0a0a0a 0%, transparent 30%); }
 
-    /* ── PAN OPTIONS SECTION ── */
-    .pan-section {
-      padding: 96px 0 80px;
-      border-bottom: 1px solid #1a1414;
-    }
+    .pan-section { padding: 96px 0 80px; border-bottom: 1px solid #1a1414; }
     .section-header { text-align: center; margin-bottom: 64px; }
     .section-header .kicker { display: block; margin-bottom: 12px; }
-    .section-header h2 {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-      font-size: clamp(2.2rem, 4vw, 3.2rem); text-transform: uppercase;
-      letter-spacing: -.02em; color: #fff; margin-bottom: 16px;
-    }
+    .section-header h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 4vw, 3.2rem); text-transform: uppercase; letter-spacing: -.02em; color: #fff; margin-bottom: 16px; }
     .section-header p { color: #a89890; font-size: 1.05rem; max-width: 50ch; margin-inline: auto; line-height: 1.7; }
 
-    /* Pan cards */
-    .pan-cards {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
-      max-width: 860px; margin-inline: auto; margin-bottom: 72px;
-    }
-    .pan-card {
-      background: #141010; border: 1px solid #2a2020; border-radius: var(--radius);
-      padding: 40px 36px; position: relative; overflow: hidden;
-      transition: border-color .2s, transform .2s;
-    }
+    .pan-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 860px; margin-inline: auto; margin-bottom: 72px; }
+    .pan-card { background: #141010; border: 1px solid #2a2020; border-radius: var(--radius); padding: 40px 36px; position: relative; overflow: hidden; transition: border-color .2s, transform .2s; }
     .pan-card:hover { border-color: var(--red); transform: translateY(-4px); }
-    .pan-card.featured {
-      border-color: rgba(200,50,26,.5);
-      background: linear-gradient(135deg, #1a1010 0%, #1f1212 100%);
-    }
-    .pan-card-badge {
-      position: absolute; top: 20px; right: 20px;
-      background: var(--red); color: #fff;
-      font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-      padding: 5px 12px; border-radius: 999px;
-    }
-    .pan-card-icon {
-      width: 52px; height: 52px; border-radius: 14px;
-      background: rgba(200,50,26,.15); color: #e05040;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; margin-bottom: 20px;
-    }
-    .pan-card h3 {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-      font-size: 1.7rem; text-transform: uppercase; color: #fff;
-      margin-bottom: 6px;
-    }
-    .pan-card .feeds {
-      display: inline-block; background: rgba(200,50,26,.12); color: #e05040;
-      padding: 4px 14px; border-radius: 999px; font-weight: 700; font-size: .8rem;
-      margin-bottom: 16px;
-    }
-    .pan-card .pan-desc {
-      color: #a89890; font-size: .95rem; line-height: 1.6; margin-bottom: 28px;
-    }
-    .pan-pricing {
-      border-top: 1px solid #2a2020; padding-top: 24px;
-    }
-    .pan-pricing-label {
-      font-size: .72rem; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; color: #6e5e58; margin-bottom: 12px;
-    }
+    .pan-card.featured { border-color: rgba(200,50,26,.5); background: linear-gradient(135deg, #1a1010 0%, #1f1212 100%); }
+    .pan-card-badge { position: absolute; top: 20px; right: 20px; background: var(--red); color: #fff; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; }
+    .pan-card-icon { width: 52px; height: 52px; border-radius: 14px; background: rgba(200,50,26,.15); color: #e05040; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; }
+    .pan-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.7rem; text-transform: uppercase; color: #fff; margin-bottom: 6px; }
+    .pan-card .feeds { display: inline-block; background: rgba(200,50,26,.12); color: #e05040; padding: 4px 14px; border-radius: 999px; font-weight: 700; font-size: .8rem; margin-bottom: 16px; }
+    .pan-card .pan-desc { color: #a89890; font-size: .95rem; line-height: 1.6; margin-bottom: 28px; }
+    .pan-pricing { border-top: 1px solid #2a2020; padding-top: 24px; }
+    .pan-pricing-label { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #6e5e58; margin-bottom: 12px; }
     .price-rows { display: flex; flex-direction: column; gap: 8px; }
-    .price-row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 14px; border-radius: 10px; background: #0f0f0f;
-    }
+    .price-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-radius: 10px; background: #0f0f0f; }
     .price-row-name { font-size: .9rem; color: #c8b8b0; font-weight: 500; }
     .price-row-amount { font-size: 1rem; font-weight: 700; color: #f0ebe6; }
 
-    /* Menu items grid */
-    .items-section {
-      margin-top: 16px;
-    }
-    .items-section h3 {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-      font-size: 1.5rem; text-transform: uppercase; color: #f0ebe6;
-      text-align: center; margin-bottom: 24px;
-      letter-spacing: -.01em;
-    }
-    .catering-items {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
-      max-width: 900px; margin-inline: auto;
-    }
-    .item-pill {
-      display: flex; align-items: center; gap: 10px;
-      background: #141010; border: 1px solid #2a2020; border-radius: 12px;
-      padding: 14px 18px; font-size: .9rem; font-weight: 600; color: #f0ebe6;
-      transition: border-color .18s, background .18s;
-    }
+    .items-section { margin-top: 16px; }
+    .items-section h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.5rem; text-transform: uppercase; color: #f0ebe6; text-align: center; margin-bottom: 24px; letter-spacing: -.01em; }
+    .catering-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 900px; margin-inline: auto; }
+    .item-pill { display: flex; align-items: center; gap: 10px; background: #141010; border: 1px solid #2a2020; border-radius: 12px; padding: 14px 18px; font-size: .9rem; font-weight: 600; color: #f0ebe6; transition: border-color .18s, background .18s; }
     .item-pill:hover { border-color: var(--red); background: #1a1414; }
     .item-pill::before { content: '✓'; color: #e05040; font-size: .8rem; flex-shrink: 0; }
 
-    /* ── FORM SECTION ── */
-    .form-section {
-      padding: 96px 0;
-      background: #0a0a0a;
-    }
-    .form-wrap {
-      max-width: 780px; margin-inline: auto;
-    }
-    .form-card {
-      background: #141010; border: 1px solid #2a2020; border-radius: 24px;
-      padding: 56px 64px;
-    }
+    .form-section { padding: 96px 0; background: #0a0a0a; }
+    .form-wrap { max-width: 780px; margin-inline: auto; }
+    .form-card { background: #141010; border: 1px solid #2a2020; border-radius: 24px; padding: 56px 64px; }
     .form-card-header { text-align: center; margin-bottom: 40px; }
-    .form-card-header h2 {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-      font-size: 2.4rem; text-transform: uppercase; color: #fff;
-      margin-bottom: 10px;
-    }
+    .form-card-header h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2.4rem; text-transform: uppercase; color: #fff; margin-bottom: 10px; }
     .form-card-header p { color: #a89890; font-size: 1rem; line-height: 1.6; }
 
-    .contact-strip {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 36px;
-    }
-    .contact-method {
-      display: flex; align-items: center; gap: 14px;
-      background: #1a1414; padding: 16px 20px; border-radius: 12px;
-      border: 1px solid #2a2020; text-decoration: none; transition: border-color .2s;
-    }
+    .contact-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 36px; }
+    .contact-method { display: flex; align-items: center; gap: 14px; background: #1a1414; padding: 16px 20px; border-radius: 12px; border: 1px solid #2a2020; text-decoration: none; transition: border-color .2s; }
     .contact-method:hover { border-color: var(--red); }
-    .contact-icon {
-      width: 38px; height: 38px; border-radius: 50%; background: rgba(200,50,26,.15);
-      color: #e05040; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
-      flex-shrink: 0;
-    }
+    .contact-icon { width: 38px; height: 38px; border-radius: 50%; background: rgba(200,50,26,.15); color: #e05040; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
     .contact-text span { font-size: .72rem; color: #a89890; text-transform: uppercase; letter-spacing: .05em; font-weight: 700; display: block; }
     .contact-text strong { font-size: .95rem; color: #f0ebe6; }
 
-    .form-divider {
-      display: flex; align-items: center; gap: 16px; margin-bottom: 32px;
-    }
-    .form-divider::before, .form-divider::after {
-      content: ''; flex: 1; height: 1px; background: #2a2020;
-    }
+    .form-divider { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+    .form-divider::before, .form-divider::after { content: ''; flex: 1; height: 1px; background: #2a2020; }
     .form-divider span { color: #6e5e58; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; white-space: nowrap; }
 
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .form-field { display: flex; flex-direction: column; gap: 6px; }
     .form-field.full { grid-column: 1 / -1; }
     .form-field label { font-size: .75rem; font-weight: 700; color: #a89890; letter-spacing: .06em; text-transform: uppercase; }
-    .form-field input, .form-field select, .form-field textarea {
-      background: #0f0f0f; border: 1.5px solid #3a2a28;
-      border-radius: 10px; padding: 14px 16px;
-      color: #f0ebe6; font-size: .95rem; font-family: inherit;
-      transition: border-color .18s, box-shadow .18s; outline: none;
-    }
-    .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
-      border-color: #c8321a; box-shadow: 0 0 0 3px rgba(200,50,26,.15);
-    }
+    .form-field input, .form-field select, .form-field textarea { background: #0f0f0f; border: 1.5px solid #3a2a28; border-radius: 10px; padding: 14px 16px; color: #f0ebe6; font-size: .95rem; font-family: inherit; transition: border-color .18s, box-shadow .18s; outline: none; }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: #c8321a; box-shadow: 0 0 0 3px rgba(200,50,26,.15); }
     .form-field select option { background: #1a1414; }
     .form-field textarea { resize: vertical; min-height: 110px; }
     .form-submit-row { margin-top: 24px; }
@@ -309,38 +143,21 @@
     #form-success h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; color: #f0ebe6; margin-bottom: 8px; }
     #form-success p { color: #a89890; font-size: .95rem; }
 
-    /* FOOTER */
     footer { background: #0a0a0a; padding: 80px 0 40px; border-top: 1px solid #1a1414; }
-    .footer-inner {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px; margin-bottom: 48px;
-    }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
     .footer-brand .nav-logo-text { color: #fff; font-size: 1.4rem; margin-bottom: 14px; display: block; }
     .footer-brand p { font-size: .875rem; color: #a89890; line-height: 1.7; max-width: 30ch; }
     .footer-col h4 { color: #fff; font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .footer-col ul a { font-size: .875rem; color: #a89890; transition: color .18s; }
     .footer-col ul a:hover { color: #fff; }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.08); padding-top: 28px;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 12px;
-    }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
     .footer-bottom p { font-size: .8rem; color: #6e5e58; }
     .footer-social { display: flex; gap: 12px; }
-    .footer-social a {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(255,255,255,.08);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,.6); font-size: .85rem;
-      transition: background .18s, color .18s;
-    }
+    .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.6); font-size: .85rem; transition: background .18s, color .18s; }
     .footer-social a:hover { background: var(--red); color: #fff; }
 
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-    }
+    @media (max-width: 1024px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 768px) {
       :root { --nav-h: 64px; }
       .catering-hero { grid-template-columns: 1fr; min-height: auto; }
@@ -358,9 +175,7 @@
       .contact-strip { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; gap: 32px; }
     }
-    @media (max-width: 480px) {
-      .catering-items { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 480px) { .catering-items { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -408,7 +223,7 @@
     </div>
   </div>
 
-  <!-- ① HERO -->
+  <!-- HERO -->
   <section class="catering-hero">
     <div class="hero-copy">
       <span class="kicker">Catering &amp; Events</span>
@@ -424,7 +239,7 @@
     </div>
   </section>
 
-  <!-- ② PAN OPTIONS + PRICES -->
+  <!-- PAN OPTIONS -->
   <section class="pan-section">
     <div class="container">
       <div class="section-header">
@@ -434,7 +249,6 @@
       </div>
 
       <div class="pan-cards">
-        <!-- Half Pan -->
         <div class="pan-card">
           <div class="pan-card-icon">½</div>
           <h3>Half Pan</h3>
@@ -443,31 +257,15 @@
           <div class="pan-pricing">
             <div class="pan-pricing-label">Sample pricing</div>
             <div class="price-rows">
-              <div class="price-row">
-                <span class="price-row-name">Baked Mac &amp; Cheese</span>
-                <span class="price-row-amount">$45</span>
-              </div>
-              <div class="price-row">
-                <span class="price-row-name">Collard Greens</span>
-                <span class="price-row-amount">$40</span>
-              </div>
-              <div class="price-row">
-                <span class="price-row-name">Candied Yams</span>
-                <span class="price-row-amount">$40</span>
-              </div>
-              <div class="price-row">
-                <span class="price-row-name">Crispy Wings</span>
-                <span class="price-row-amount">$65</span>
-              </div>
-              <div class="price-row">
-                <span class="price-row-name">Slow-Smoked Ribs</span>
-                <span class="price-row-amount">$80</span>
-              </div>
+              <div class="price-row"><span class="price-row-name">Baked Mac &amp; Cheese</span><span class="price-row-amount">$45</span></div>
+              <div class="price-row"><span class="price-row-name">Collard Greens</span><span class="price-row-amount">$40</span></div>
+              <div class="price-row"><span class="price-row-name">Candied Yams</span><span class="price-row-amount">$40</span></div>
+              <div class="price-row"><span class="price-row-name">Crispy Wings</span><span class="price-row-amount">$65</span></div>
+              <div class="price-row"><span class="price-row-name">Slow-Smoked Ribs</span><span class="price-row-amount">$80</span></div>
             </div>
           </div>
         </div>
 
-        <!-- Full Pan -->
         <div class="pan-card featured">
           <div class="pan-card-badge">Best Value</div>
           <div class="pan-card-icon">⬛</div>
@@ -477,32 +275,16 @@
           <div class="pan-pricing">
             <div class="pan-pricing-label">Sample pricing</div>
             <div class="price-rows">
-              <div class="price-row">
-                <span class="price-row-name">Baked Mac &amp; Cheese</span>
-                <span class="price-row-amount">$80</span>
-              </div>
-              <div class="price-row">
-                <span class="price-row-name">Collard Greens</span>
-                <span class="price-row-amount">$70</span>
-              </div>
-              <div class="price-row">
-                <span class="price-row-name">Candied Yams</span>
-                <span class="price-row-amount">$70</span>
-              </div>
-              <div class="price-row">
-                <span class="price-row-name">Crispy Wings</span>
-                <span class="price-row-amount">$120</span>
-              </div>
-              <div class="price-row">
-                <span class="price-row-name">Slow-Smoked Ribs</span>
-                <span class="price-row-amount">$150</span>
-              </div>
+              <div class="price-row"><span class="price-row-name">Baked Mac &amp; Cheese</span><span class="price-row-amount">$80</span></div>
+              <div class="price-row"><span class="price-row-name">Collard Greens</span><span class="price-row-amount">$70</span></div>
+              <div class="price-row"><span class="price-row-name">Candied Yams</span><span class="price-row-amount">$70</span></div>
+              <div class="price-row"><span class="price-row-name">Crispy Wings</span><span class="price-row-amount">$120</span></div>
+              <div class="price-row"><span class="price-row-name">Slow-Smoked Ribs</span><span class="price-row-amount">$150</span></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Popular Items -->
       <div class="items-section">
         <h3>Popular catering items</h3>
         <div class="catering-items">
@@ -519,7 +301,7 @@
     </div>
   </section>
 
-  <!-- ③ FORM -->
+  <!-- FORM -->
   <section class="form-section" id="inquire">
     <div class="container">
       <div class="form-wrap">
@@ -533,25 +315,21 @@
           <div class="contact-strip">
             <a href="tel:+17243850522" class="contact-method">
               <div class="contact-icon">📞</div>
-              <div class="contact-text">
-                <span>Call Us</span>
-                <strong>724-385-0522</strong>
-              </div>
+              <div class="contact-text"><span>Call Us</span><strong>724-385-0522</strong></div>
             </a>
             <div class="contact-method" style="cursor:default;">
               <div class="contact-icon">📍</div>
-              <div class="contact-text">
-                <span>Visit Us</span>
-                <strong>1601 Duss Ave, Ambridge, PA</strong>
-              </div>
+              <div class="contact-text"><span>Visit Us</span><strong>1601 Duss Ave, Ambridge, PA</strong></div>
             </div>
           </div>
 
           <div class="form-divider"><span>or send us a message</span></div>
 
-          <form id="catering-form" onsubmit="handleCateringSubmitGHL(event)">
+          <!-- ✅ Formspree endpoint — no backend, no Supabase -->
+          <form id="catering-form" action="https://formspree.io/f/xkoadknl" method="POST">
             <input type="hidden" name="_subject" value="New Catering Inquiry — Annie Lee's Southern Kitchen" />
-            <input type="hidden" name="_replyto" id="_replyto" value="" />
+            <!-- Redirect back to this page with a success flag after submission -->
+            <input type="hidden" name="_next" value="https://mbayingana777-del.github.io/annie-lee-soithern-kitchen-2/catering.html?submitted=true" />
 
             <div class="form-grid">
               <div class="form-field">
@@ -564,7 +342,7 @@
               </div>
               <div class="form-field">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required placeholder="you@example.com" oninput="document.getElementById('_replyto').value=this.value" />
+                <input type="email" id="email" name="email" required placeholder="you@example.com" />
               </div>
               <div class="form-field">
                 <label for="date">Event Date</label>
@@ -659,12 +437,12 @@
       document.getElementById('site-nav').classList.toggle('scrolled', window.scrollY > 10);
     });
 
-    function showSuccess() {
+    // Show success message if redirected back after Formspree submission
+    if (window.location.search.includes('submitted=true')) {
       document.getElementById('catering-form').style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
     }
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="lead-capture.js"></script>
+
 </body>
 </html>
