@@ -35,7 +35,7 @@
       </ul>
       <div class="nav-cta">
         <a href="tel:+17243850522" class="nav-phone">📞 724-385-0522</a>
-        <a href="menu.html" class="btn btn-green" style="padding:10px 20px;font-size:.875rem;">Order Now</a>
+        <a href="menu.html" class="btn btn-orange" style="padding:10px 20px;font-size:.875rem;">Order Now</a>
       </div>
       <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -57,86 +57,247 @@
       <li><a href="index.html#location" onclick="closeMobileNav()">Location</a></li>
     </ul>
     <div class="mobile-nav-bottom">
-      <a href="menu.html" class="btn btn-green btn-lg">Order Now</a>
-      <a href="tel:+17243850522" class="btn btn-outline-white btn-lg">Call 724-385-0522</a>
+      <a href="menu.html" class="btn btn-orange" style="width:100%">Order Now</a>
     </div>
   </div>
 
-  <section class="truck-hero" id="home">
-    <div class="hero-copy reveal">
-      <div class="hero-eyebrow">Food Truck Schedule &amp; Bookings</div>
-      <h1>Book Annie Lee's<br><em>Food Truck</em></h1>
-      <p class="hero-sub">See where we'll be next, explore our food truck menu, and reserve Annie Lee's Southern Kitchen for your next event.</p>
-      <div class="hero-actions"><a href="#book" class="btn btn-orange btn-lg">Book The Food Truck</a><a href="#schedule" class="btn btn-outline-white btn-lg">View Schedule</a></div>
+  <!-- HERO -->
+  <section class="truck-hero">
+    <div class="hero-copy">
+      <div class="hero-eyebrow">🚚 Food Truck</div>
+      <h1>Book The<em> Food Truck</em></h1>
+      <p class="hero-sub">Find us around the Triangle and grab some fresh Southern cuisine. Perfect for events, parties, and gatherings.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn btn-orange btn-lg">Book The Truck</a>
+        <a href="tel:+17243850522" class="btn btn-outline-white btn-lg">Call to Order</a>
+      </div>
     </div>
     <div class="hero-image">
-      <img src="assets/food-truck-hero.jpg" alt="Annie Lee's Southern Kitchen food truck" onerror="this.src='https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?auto=format&fit=crop&w=1200&q=80'" />
-      <div class="hero-badge"><strong>Book Now</strong><span>Events + Pop-Ups</span></div>
-    </div>
-  </section>
-
-  <section class="foodtruck-menu-section section" id="foodtruck-menu">
-    <div class="container">
-      <div class="section-header reveal"><span class="kicker">Fresh From The Truck</span><h2>Food Truck Menu</h2><p>Hot Southern favorites served fast, fresh, and ready for events, pop-ups, and community stops.</p></div>
-      <div class="menu-grid">
-        <article class="menu-card reveal"><div class="menu-img"><img src="assets/chicken-dinner.jpg" alt="Chicken dinner" onerror="this.src='https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=800&q=80'" /></div><div class="menu-body"><h3>Chicken Dinner</h3><p>Southern-style chicken served hot with classic comfort sides.</p><div class="price">$18+</div></div></article>
-        <article class="menu-card reveal"><div class="menu-img"><img src="assets/fish-dinner.jpg" alt="Fish dinner" onerror="this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'" /></div><div class="menu-body"><h3>Fish Dinner</h3><p>Crispy seasoned fish with soulful sides and bold flavor.</p><div class="price">$20+</div></div></article>
-        <article class="menu-card reveal"><div class="menu-img"><img src="assets/soul-food-plate.jpg" alt="Soul food plate" onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80'" /></div><div class="menu-body"><h3>Soul Food Plate</h3><p>A rotating plate of Annie Lee favorites made for serious comfort.</p><div class="price">$22+</div></div></article>
-        <article class="menu-card reveal"><div class="menu-img"><img src="assets/loaded-side-plate.jpg" alt="Loaded side plate" onerror="this.src='https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?auto=format&fit=crop&w=800&q=80'" /></div><div class="menu-body"><h3>Loaded Side Plate</h3><p>Mac, greens, yams, and rotating sides stacked into one plate.</p><div class="price">$15+</div></div></article>
+      <img src="https://images.unsplash.com/photo-1555939594-58d7cb561404?w=800&h=600&fit=crop" alt="Food truck" />
+      <div class="hero-badge">
+        <strong>Open</strong>
+        <span>Wed-Sun</span>
       </div>
     </div>
   </section>
 
-  <section class="calendar-section section" id="schedule">
+  <!-- CALENDAR -->
+  <section class="section calendar-section">
     <div class="container">
-      <div class="section-header reveal"><span class="kicker">Where We'll Be Next</span><h2>Food Truck Schedule</h2><p>Check the calendar for upcoming stops, times, events, and locations.</p></div>
-      <div class="calendar-wrap reveal"><iframe src="https://calendar.google.com/calendar/embed?src=mbayingana777%40gmail.com&ctz=America%2FNew_York" width="100%" height="760" frameborder="0" scrolling="no"></iframe></div>
+      <div class="section-header">
+        <h2>Food Truck Schedule</h2>
+        <p>See where we'll be next and plan your visit</p>
+      </div>
+      <div class="calendar-wrap">
+        <iframe src="https://calendar.google.com/calendar/embed?src=c_d0e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      </div>
     </div>
   </section>
 
-  <section class="booking-section" id="book">
+  <!-- BOOKING -->
+  <section class="section booking-section" id="book">
     <div class="container">
-      <div class="booking-card reveal">
+      <div class="booking-card">
         <h2>Book The Food Truck</h2>
-        <p>Tell us about your event and we'll contact you to confirm availability, menu options, and pricing.</p>
-        <form id="booking-form">
-          <div class="form-row"><div class="form-group"><label for="event-name">Your Name *</label><input type="text" id="event-name" name="name" required /></div><div class="form-group"><label for="event-phone">Phone Number *</label><input type="tel" id="event-phone" name="phone" required /></div></div>
-          <div class="form-group"><label for="event-email">Email Address *</label><input type="email" id="event-email" name="email" required /></div>
-          <div class="form-row"><div class="form-group"><label for="event-type">Event Type *</label><select id="event-type" name="type" required><option value="">Select event type</option><option value="Private Event">Private Event</option><option value="Corporate Event">Corporate Event</option><option value="Festival/Fair">Festival/Fair</option><option value="Birthday Party">Birthday Party</option><option value="Community Event">Community Event</option><option value="Wedding">Wedding</option><option value="Other">Other</option></select></div><div class="form-group"><label for="event-guests">Estimated Guests *</label><input type="number" id="event-guests" name="guests" min="10" placeholder="Minimum 10 guests" required /></div></div>
-          <div class="form-row"><div class="form-group"><label for="event-date">Preferred Date *</label><input type="date" id="event-date" name="date" required /></div><div class="form-group"><label for="event-time">Preferred Time *</label><input type="time" id="event-time" name="time" required /></div></div>
-          <div class="form-group"><label for="event-location">Event Location *</label><input type="text" id="event-location" name="location" placeholder="Address or venue name" required /></div>
-          <div class="form-group"><label for="event-budget">Budget Range</label><select id="event-budget" name="budget"><option value="">Select budget range</option><option value="$500 - $1,000">$500 - $1,000</option><option value="$1,000 - $2,500">$1,000 - $2,500</option><option value="$2,500 - $5,000">$2,500 - $5,000</option><option value="$5,000+">$5,000+</option><option value="Not sure yet">Not sure yet</option></select></div>
-          <div class="form-group"><label for="event-notes">Additional Details</label><textarea id="event-notes" name="notes" placeholder="Tell us about your event, menu needs, parking details, or special requests..."></textarea></div>
-          <button type="submit" class="submit-btn">Submit Food Truck Request</button>
-          <p class="form-note">We'll respond within 24 hours to confirm availability and next steps.</p>
-          <div class="form-success" id="form-success">Thank you! Your food truck request has been received. We'll contact you shortly.</div>
+        <p>Tell us about your event and we'll get back to you within 24 hours.</p>
+        
+        <form action="https://formspree.io/f/xzdqnknk" method="POST" id="booking-form">
+          <input type="hidden" name="_subject" value="New Food Truck Booking Request">
+          <input type="hidden" name="_next" value="https://mbayingana777-del.github.io/annie-lee-soithern-kitchen-2/foodtruck.html?booked=true">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="event_type">Event Type *</label>
+              <select id="event_type" name="event_type" required>
+                <option value="">Select an event type</option>
+                <option value="Private Party">Private Party</option>
+                <option value="Corporate Event">Corporate Event</option>
+                <option value="Festival">Festival</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="event_date">Event Date *</label>
+              <input type="date" id="event_date" name="event_date" required>
+            </div>
+            <div class="form-group">
+              <label for="event_time">Event Time *</label>
+              <input type="time" id="event_time" name="event_time" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guests">Number of Guests *</label>
+              <input type="number" id="guests" name="guests" min="1" required>
+            </div>
+            <div class="form-group">
+              <label for="location">Event Location *</label>
+              <input type="text" id="location" name="location" placeholder="Address or venue name" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Budget Range</label>
+            <select id="budget" name="budget">
+              <option value="">Select a budget range</option>
+              <option value="$500-$1000">$500-$1000</option>
+              <option value="$1000-$2000">$1000-$2000</option>
+              <option value="$2000-$3000">$2000-$3000</option>
+              <option value="$3000+">$3000+</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" placeholder="Tell us more about your event..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Booking Request</button>
+          <p class="form-note">We'll respond to your booking request within 24 hours</p>
         </form>
+
+        <div class="form-success" id="form-success">
+          ✅ Thank you! Your booking request has been sent. We'll contact you soon!
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-brand"><span class="nav-logo-text">Annie Lee's Southern Kitchen</span><p>Fresh, hot soul food on wheels. Serving the community with authentic Southern flavor.</p></div>
-        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li><li><a href="foodtruck.html">Food Truck</a></li><li><a href="catering.html">Catering</a></li></ul></div>
-        <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:+17243850522">📞 724-385-0522</a></li><li><a href="mailto:info@annieleesouthern.com">📧 Email Us</a></li><li><a href="#schedule">Find The Truck</a></li></ul></div>
-        <div class="footer-col"><h4>Follow Us</h4><div class="footer-social"><a href="#" title="Facebook">f</a><a href="#" title="Instagram">📷</a><a href="#" title="TikTok">🎵</a></div></div>
+        <div class="footer-brand">
+          <span class="nav-logo-text">Annie Lee's Southern Kitchen</span>
+          <p>Authentic Southern cuisine served fresh from our food truck. Catering available for events.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="foodtruck.html">Food Truck</a></li>
+            <li><a href="catering.html">Catering</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+17243850522">📞 724-385-0522</a></li>
+            <li><a href="mailto:info@annieleeskitchen.com">📧 Email Us</a></li>
+            <li><a href="index.html#location">📍 Location</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <ul>
+            <li>Wed-Fri: 11am-7pm</li>
+            <li>Sat-Sun: 12pm-7pm</li>
+            <li>Mon-Tue: Closed</li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2024 Annie Lee's Southern Kitchen. All rights reserved.</p><div class="footer-social"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Annie Lee's Southern Kitchen. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">📷</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <div class="mobile-bar"><a href="#schedule" class="btn btn-dark">Schedule</a><a href="#book" class="btn btn-orange">Book Truck</a></div>
-
-  <!-- ✅ FIX: Supabase and lead-capture load FIRST so saveLeadToSupabase is defined before the form handler runs -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="lead-capture.js"></script>
-
   <script>
-    const hamburger=document.getElementById('hamburger'),mobileNav=document.getElementById('mobile-nav'),navClose=document.getElementById('nav-close'),siteNav=document.getElementById('site-nav');hamburger?.addEventListener('click',()=>mobileNav.classList.add('open'));navClose?.addEventListener('click',()=>mobileNav.classList.remove('open'));function closeMobileNav(){mobileNav.classList.remove('open')}window.addEventListener('scroll',()=>{if(window.scrollY>20){siteNav.classList.add('scrolled')}else{siteNav.classList.remove('scrolled')}});
-    document.getElementById('booking-form')?.addEventListener('submit',async function(e){e.preventDefault();const formData={name:document.getElementById('event-name').value,phone:document.getElementById('event-phone').value,email:document.getElementById('event-email').value,type:document.getElementById('event-type').value,guests:document.getElementById('event-guests').value,date:document.getElementById('event-date').value,time:document.getElementById('event-time').value,location:document.getElementById('event-location').value,budget:document.getElementById('event-budget').value,notes:document.getElementById('event-notes').value};if(typeof saveLeadToSupabase==='function'){const success=await saveLeadToSupabase({name:formData.name,customer_name:formData.name,phone:formData.phone,email:formData.email,event_type:formData.type,event_date:formData.date,event_time:formData.time,event_address:formData.location,guest_count:formData.guests,budget:formData.budget,special_notes:formData.notes});if(!success)return}else{console.warn('saveLeadToSupabase is not available. Check lead-capture.js.')}const successBox=document.getElementById('form-success');successBox?.classList.add('show');this.reset();setTimeout(()=>successBox?.classList.remove('show'),7000)});
-    const observer=new IntersectionObserver(function(entries){entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible')}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    const navClose = document.getElementById('nav-close');
+
+    hamburger?.addEventListener('click', () => {
+      mobileNav.classList.add('open');
+    });
+
+    navClose?.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+    });
+
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+    }
+
+    // Sticky nav
+    const siteNav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        siteNav.classList.add('scrolled');
+      } else {
+        siteNav.classList.remove('scrolled');
+      }
+    });
+
+    // Form submission with localStorage
+    const bookingForm = document.getElementById('booking-form');
+    const formSuccess = document.getElementById('form-success');
+
+    bookingForm?.addEventListener('submit', (e) => {
+      // Save to localStorage before submitting
+      const formData = new FormData(bookingForm);
+      const inquiry = {
+        id: Date.now(),
+        timestamp: new Date().toISOString(),
+        name: formData.get('name'),
+        phone: formData.get('phone'),
+        email: formData.get('email'),
+        event_type: formData.get('event_type'),
+        event_date: formData.get('event_date'),
+        event_time: formData.get('event_time'),
+        guests: formData.get('guests'),
+        location: formData.get('location'),
+        budget: formData.get('budget'),
+        notes: formData.get('notes'),
+        status: 'new'
+      };
+
+      // Get existing inquiries
+      let inquiries = JSON.parse(localStorage.getItem('foodtruck_inquiries') || '[]');
+      inquiries.push(inquiry);
+      localStorage.setItem('foodtruck_inquiries', JSON.stringify(inquiries));
+
+      // Show success message
+      formSuccess.classList.add('show');
+      bookingForm.style.display = 'none';
+      
+      // Reset after 3 seconds and allow Formspree to submit
+      setTimeout(() => {
+        bookingForm.submit();
+      }, 1500);
+    });
+
+    // Show success message if redirected with booked=true
+    if (new URLSearchParams(window.location.search).get('booked') === 'true') {
+      formSuccess.classList.add('show');
+      bookingForm.style.display = 'none';
+    }
   </script>
 </body>
 </html>
