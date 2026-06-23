@@ -3,275 +3,1106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Annie Lee's Admin Hub | Bookings & Inquiries</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <title>Annie Lee's — Control Center</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:16px}body{font-family:'Inter',ui-sans-serif,system-ui,sans-serif;background:#0f0f0f;color:#f0ebe6;overflow-x:hidden}img{max-width:100%;display:block}a{text-decoration:none;color:inherit}button{font:inherit;cursor:pointer;border:none;background:none}input,select,textarea{font:inherit}:root{--orange:#c8321a;--orange-dark:#a02514;--black:#0f0f0f;--black-2:#0a0a0a;--panel:#1a1414;--panel-2:#141010;--text:#f0ebe6;--muted:#a89890;--muted-2:#6e5e58;--border:#2a2020;--shadow-sm:0 2px 8px rgba(0,0,0,.4);--shadow:0 8px 32px rgba(0,0,0,.5);--shadow-lg:0 24px 64px rgba(0,0,0,.6);--radius:16px;--max:1280px}.container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:8px;font-weight:700;font-size:.85rem;transition:transform .18s,box-shadow .18s,background .18s;white-space:nowrap;text-transform:uppercase;letter-spacing:.03em;cursor:pointer}.btn-orange{background:var(--orange);color:#fff}.btn-orange:hover{background:var(--orange-dark)}.btn-danger{background:#8b3a3a;color:#fff}.btn-danger:hover{background:#a04545}.btn-success{background:#2d6a2d;color:#fff}.btn-success:hover{background:#3a8a3a}.btn-small{padding:6px 12px;font-size:.75rem}
-    .hub-container{display:grid;grid-template-columns:280px 1fr;min-height:100vh;gap:0}.sidebar{background:#0a0a0a;border-right:1px solid #2a2020;padding:24px;position:sticky;top:0;height:100vh;overflow-y:auto}.sidebar-header{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:900;text-transform:uppercase;margin-bottom:32px;color:#fff}.sidebar-nav{display:flex;flex-direction:column;gap:8px}.nav-item{padding:12px 14px;border-radius:8px;color:#a89890;font-size:.9rem;font-weight:600;cursor:pointer;transition:background .18s,color .18s;text-transform:uppercase;letter-spacing:.02em}.nav-item:hover{background:rgba(200,50,26,.15);color:#f0ebe6}.nav-item.active{background:rgba(200,50,26,.25);color:#e05040}.nav-badge{display:inline-block;background:var(--orange);color:#fff;border-radius:999px;padding:2px 8px;font-size:.7rem;font-weight:800;margin-left:auto}.main-content{padding:40px;background:#0f0f0f;overflow-y:auto}.content-header{margin-bottom:32px}.content-header h1{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:900;text-transform:uppercase;letter-spacing:-.02em;color:#fff;margin-bottom:8px}.content-header p{color:#a89890;font-size:.95rem}.tab-content{display:none}.tab-content.active{display:block}.inquiries-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;margin-bottom:40px}.inquiry-card{background:#141010;border:1px solid #2a2020;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-sm);transition:border-color .18s,box-shadow .18s}.inquiry-card:hover{border-color:rgba(224,80,64,.42);box-shadow:0 8px 24px rgba(200,50,26,.12)}.inquiry-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #2a2020}.inquiry-name{font-weight:700;color:#fff;font-size:1.05rem}.inquiry-status{display:inline-block;padding:4px 10px;border-radius:999px;font-size:.7rem;font-weight:800;text-transform:uppercase}.status-new{background:rgba(200,50,26,.25);color:#e05040}.status-handled{background:rgba(100,100,100,.25);color:#a89890}.inquiry-detail{display:flex;justify-content:space-between;margin-bottom:10px;font-size:.9rem}.inquiry-detail-label{color:#a89890;font-weight:600}.inquiry-detail-value{color:#f0ebe6}.inquiry-notes{background:#0a0a0a;padding:12px;border-radius:6px;margin:12px 0;font-size:.85rem;color:#a89890;line-height:1.5;max-height:80px;overflow-y:auto}.inquiry-actions{display:flex;gap:8px;margin-top:14px}.inquiry-actions button{flex:1}.empty-state{text-align:center;padding:60px 40px;color:#a89890}.empty-state-icon{font-size:3rem;margin-bottom:16px}.empty-state h3{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;color:#f0ebe6;margin-bottom:8px}.empty-state p{font-size:.95rem;line-height:1.5}
-    @media(max-width:768px){.hub-container{grid-template-columns:1fr}.sidebar{position:fixed;left:-280px;top:0;height:100vh;z-index:100;transition:left .3s;width:280px}.sidebar.open{left:0}.main-content{padding:24px}.inquiries-grid{grid-template-columns:1fr}}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-size:16px;height:100%}
+    body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#f0ebe6;min-height:100vh;overflow-x:hidden}
+    :root{
+      --red:#c8321a;--red-dark:#a02514;--red-glow:rgba(200,50,26,.25);
+      --bg:#0a0a0a;--bg2:#0f0f0f;--panel:#141010;--panel2:#1a1414;
+      --border:#2a2020;--border2:#3a2a28;
+      --text:#f0ebe6;--muted:#a89890;--muted2:#6e5e58;
+      --green:#22c55e;--yellow:#f59e0b;--blue:#3b82f6;
+      --radius:12px;--sidebar:260px;--header:64px;
+    }
+    a{text-decoration:none;color:inherit}
+    button{font:inherit;cursor:pointer;border:none;background:none}
+    input,select,textarea{font:inherit}
+
+    /* ── PASSWORD GATE ── */
+    #gate{position:fixed;inset:0;background:#0a0a0a;z-index:999;display:flex;align-items:center;justify-content:center}
+    #gate.hidden{display:none}
+    .gate-card{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:48px 44px;width:min(420px,90vw);text-align:center;box-shadow:0 32px 80px rgba(0,0,0,.7)}
+    .gate-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.6rem;text-transform:uppercase;color:#fff;letter-spacing:.04em;margin-bottom:6px}
+    .gate-sub{color:var(--muted);font-size:.9rem;margin-bottom:32px}
+    .gate-input{width:100%;background:#0f0f0f;border:1.5px solid var(--border2);border-radius:10px;padding:14px 16px;color:#fff;font-size:1rem;text-align:center;letter-spacing:.1em;margin-bottom:16px;transition:border-color .2s}
+    .gate-input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px var(--red-glow)}
+    .gate-btn{width:100%;padding:15px;background:var(--red);color:#fff;border-radius:10px;font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:.04em;transition:background .18s,transform .18s}
+    .gate-btn:hover{background:var(--red-dark);transform:translateY(-1px)}
+    .gate-error{color:#f87171;font-size:.85rem;margin-top:10px;display:none}
+
+    /* ── APP SHELL ── */
+    #app{display:none;height:100vh;grid-template-rows:var(--header) 1fr;grid-template-columns:var(--sidebar) 1fr}
+    #app.visible{display:grid}
+
+    /* ── HEADER ── */
+    .app-header{grid-column:1/-1;background:#0a0a0a;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 28px;z-index:50}
+    .header-brand{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.4rem;text-transform:uppercase;color:#fff;letter-spacing:.04em}
+    .header-brand span{color:var(--red)}
+    .header-right{display:flex;align-items:center;gap:16px}
+    .publish-btn{display:flex;align-items:center;gap:8px;padding:9px 20px;background:var(--red);color:#fff;border-radius:8px;font-weight:800;font-size:.875rem;text-transform:uppercase;letter-spacing:.04em;transition:all .18s}
+    .publish-btn:hover{background:var(--red-dark);transform:translateY(-1px)}
+    .publish-btn.loading{opacity:.7;pointer-events:none}
+    .publish-btn .spinner{width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
+    .publish-btn.loading .spinner{display:block}
+    .publish-btn.loading .btn-label{display:none}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .view-site-btn{color:var(--muted);font-size:.85rem;font-weight:600;padding:9px 16px;border-radius:8px;border:1px solid var(--border);transition:all .18s}
+    .view-site-btn:hover{color:#fff;border-color:var(--border2)}
+    .status-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(34,197,94,.6)}
+
+    /* ── SIDEBAR ── */
+    .app-sidebar{background:#0a0a0a;border-right:1px solid var(--border);overflow-y:auto;padding:20px 0}
+    .sidebar-section{padding:0 12px;margin-bottom:8px}
+    .sidebar-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);padding:0 8px;margin-bottom:6px}
+    .nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:rgba(240,235,230,.6);font-size:.9rem;font-weight:600;cursor:pointer;transition:all .18s;border:1px solid transparent;margin-bottom:2px}
+    .nav-item:hover{color:#f0ebe6;background:rgba(200,50,26,.08)}
+    .nav-item.active{color:#fff;background:rgba(200,50,26,.18);border-color:rgba(200,50,26,.3)}
+    .nav-item .nav-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
+    .sidebar-divider{height:1px;background:var(--border);margin:12px 12px}
+
+    /* ── MAIN ── */
+    .app-main{overflow-y:auto;background:var(--bg2);padding:32px}
+    .tab-pane{display:none}
+    .tab-pane.active{display:block}
+
+    /* ── PAGE HEADER ── */
+    .page-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;text-transform:uppercase;color:#fff;letter-spacing:-.01em;margin-bottom:6px}
+    .page-desc{color:var(--muted);font-size:.9rem;margin-bottom:28px}
+
+    /* ── CARDS ── */
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
+    .card-title{font-weight:700;font-size:1rem;color:#fff;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+    .card-title .icon{font-size:1.1rem}
+
+    /* ── FORM ELEMENTS ── */
+    .field{margin-bottom:16px}
+    .field label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+    .field input,.field select,.field textarea{width:100%;background:#0f0f0f;border:1.5px solid var(--border2);border-radius:8px;padding:11px 14px;color:#f0ebe6;font-size:.95rem;transition:border-color .18s,box-shadow .18s}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px var(--red-glow)}
+    .field textarea{resize:vertical;min-height:80px}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field-row.three{grid-template-columns:1fr 1fr 1fr}
+
+    /* ── BUTTONS ── */
+    .btn{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:8px;font-weight:700;font-size:.875rem;transition:all .18s;cursor:pointer;white-space:nowrap}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-red{background:var(--red);color:#fff}
+    .btn-red:hover{background:var(--red-dark)}
+    .btn-dark{background:#1e1e1e;color:#f0ebe6;border:1px solid #2e2e2e}
+    .btn-dark:hover{background:#2a2a2a}
+    .btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.25)}
+    .btn-danger:hover{background:rgba(239,68,68,.25)}
+    .btn-sm{padding:7px 13px;font-size:.8rem}
+    .btn-ghost{color:var(--muted);font-size:.85rem;padding:6px 10px}
+    .btn-ghost:hover{color:#fff}
+
+    /* ── TOAST ── */
+    #toast{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+    .toast-item{background:#1a1414;border:1px solid var(--border2);border-radius:10px;padding:14px 18px;font-size:.875rem;font-weight:600;display:flex;align-items:center;gap:10px;box-shadow:0 8px 24px rgba(0,0,0,.5);animation:slideIn .3s ease;pointer-events:all;max-width:340px}
+    .toast-item.success{border-left:3px solid var(--green)}
+    .toast-item.error{border-left:3px solid #f87171}
+    .toast-item.info{border-left:3px solid var(--blue)}
+    @keyframes slideIn{from{transform:translateX(120%);opacity:0}to{transform:none;opacity:1}}
+    @keyframes slideOut{to{transform:translateX(120%);opacity:0}}
+
+    /* ── DASHBOARD STATS ── */
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+    .stat-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:20px;cursor:pointer;transition:border-color .2s}
+    .stat-card:hover{border-color:rgba(200,50,26,.4)}
+    .stat-num{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;color:#fff;line-height:1}
+    .stat-label{font-size:.8rem;color:var(--muted);margin-top:4px;font-weight:600}
+    .stat-badge{display:inline-block;margin-top:8px;padding:3px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
+    .badge-red{background:rgba(200,50,26,.18);color:#e05040}
+    .badge-green{background:rgba(34,197,94,.12);color:#4ade80}
+
+    /* ── MENU ITEMS ── */
+    .menu-item-row{display:grid;grid-template-columns:1fr 1fr 80px 80px auto;gap:10px;align-items:center;background:#0f0f0f;border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:8px}
+    .menu-item-row input{background:transparent;border:none;color:#f0ebe6;font-size:.9rem;padding:4px 0}
+    .menu-item-row input:focus{outline:none;border-bottom:1px solid var(--red)}
+    .menu-cat-header{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:900;text-transform:uppercase;color:var(--red);margin:20px 0 8px;letter-spacing:.04em}
+
+    /* ── IMAGE EDITOR ── */
+    .img-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .img-slot{background:#0f0f0f;border:1.5px solid var(--border);border-radius:10px;overflow:hidden;position:relative}
+    .img-slot-preview{width:100%;height:140px;object-fit:cover;display:block}
+    .img-slot-label{padding:10px 12px;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+    .img-slot-url{width:calc(100% - 24px);margin:0 12px 12px;background:#141010;border:1px solid var(--border2);border-radius:6px;padding:8px 10px;color:#f0ebe6;font-size:.82rem}
+    .img-slot-url:focus{outline:none;border-color:var(--red)}
+
+    /* ── HOURS TABLE ── */
+    .hours-row{display:grid;grid-template-columns:100px 1fr 1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+    .hours-row:last-child{border-bottom:none}
+    .hours-day{font-weight:700;font-size:.9rem;color:#fff}
+    .hours-closed{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:.85rem;cursor:pointer}
+    .hours-closed input[type=checkbox]{accent-color:var(--red);width:14px;height:14px}
+
+    /* ── CATERING PRICES ── */
+    .price-row-edit{display:grid;grid-template-columns:1fr 90px 90px auto;gap:10px;align-items:center;background:#0f0f0f;border:1px solid var(--border);border-radius:8px;padding:11px 14px;margin-bottom:8px}
+    .price-row-edit input{background:transparent;border:none;color:#f0ebe6;font-size:.9rem;padding:4px 0}
+    .price-row-edit input:focus{outline:none;border-bottom:1px solid var(--red)}
+
+    /* ── BOOKINGS ── */
+    .booking-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:12px;transition:border-color .2s}
+    .booking-card.open{border-left:3px solid var(--red)}
+    .booking-card.closed{border-left:3px solid var(--green);opacity:.6}
+    .booking-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+    .booking-name{font-weight:800;font-size:1.05rem;color:#fff}
+    .booking-type{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--red);margin-top:2px}
+    .booking-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+    .booking-meta-item{background:#0f0f0f;border-radius:8px;padding:10px 12px}
+    .booking-meta-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted2);margin-bottom:3px}
+    .booking-meta-val{font-size:.9rem;font-weight:600;color:#f0ebe6}
+    .booking-actions{display:flex;gap:8px}
+    .empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
+    .empty-state .empty-icon{font-size:3rem;margin-bottom:12px}
+    .empty-state p{font-size:.95rem}
+
+    /* ── SETTINGS ── */
+    .settings-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--border)}
+    .settings-row:last-child{border-bottom:none}
+    .settings-label{font-weight:700;font-size:.9rem;color:#fff}
+    .settings-desc{font-size:.8rem;color:var(--muted);margin-top:3px}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px){
+      #app{grid-template-columns:1fr}
+      .app-sidebar{display:none}
+      .stats-grid{grid-template-columns:1fr 1fr}
+      .img-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      .app-main{padding:20px}
+      .stats-grid{grid-template-columns:1fr}
+      .field-row,.field-row.three{grid-template-columns:1fr}
+      .menu-item-row{grid-template-columns:1fr auto}
+      .price-row-edit{grid-template-columns:1fr auto}
+      .img-grid{grid-template-columns:1fr}
+      .booking-meta{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
-  <div class="hub-container">
-    <!-- SIDEBAR -->
-    <div class="sidebar" id="sidebar">
-      <div class="sidebar-header">📊 Hub</div>
-      <nav class="sidebar-nav">
-        <div class="nav-item active" onclick="switchTab('bookings')">
-          Bookings <span class="nav-badge" id="booking-count">0</span>
-        </div>
-        <div class="nav-item" onclick="switchTab('settings')">⚙️ Settings</div>
-        <div class="nav-item" onclick="goHome()">← Back to Site</div>
-      </nav>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-      <!-- BOOKINGS TAB -->
-      <div id="bookings" class="tab-content active">
-        <div class="content-header">
-          <h1>Food Truck Bookings</h1>
-          <p>Manage all booking inquiries from customers</p>
-        </div>
-
-        <!-- OPEN INQUIRIES -->
-        <div style="margin-bottom:40px">
-          <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:900;text-transform:uppercase;margin-bottom:20px;color:#fff">Open Inquiries</h2>
-          <div class="inquiries-grid" id="open-inquiries">
-            <div class="empty-state">
-              <div class="empty-state-icon">📭</div>
-              <h3>No new inquiries</h3>
-              <p>Check back after your next booking form submission.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- HANDLED INQUIRIES (COLLAPSED) -->
-        <div style="margin-bottom:40px">
-          <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:900;text-transform:uppercase;margin-bottom:20px;color:#fff;cursor:pointer;display:flex;align-items:center;gap:8px" onclick="toggleHandled()">
-            <span id="handled-toggle">▶</span> Handled Inquiries (<span id="handled-count">0</span>)
-          </h2>
-          <div class="inquiries-grid" id="handled-inquiries" style="display:none">
-            <div class="empty-state">
-              <div class="empty-state-icon">✅</div>
-              <h3>No handled inquiries yet</h3>
-              <p>Inquiries you close will appear here.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SETTINGS TAB -->
-      <div id="settings" class="tab-content">
-        <div class="content-header">
-          <h1>Settings</h1>
-          <p>Manage your hub preferences</p>
-        </div>
-
-        <div style="background:#141010;border:1px solid #2a2020;border-radius:var(--radius);padding:24px;max-width:500px">
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:900;text-transform:uppercase;margin-bottom:16px;color:#fff">Data Management</h3>
-          
-          <button class="btn btn-danger" style="width:100%;margin-bottom:12px" onclick="clearAllData()">
-            🗑 Clear All Data
-          </button>
-          <p style="font-size:.85rem;color:#a89890;line-height:1.5">
-            This will delete all stored inquiries from your browser. This action cannot be undone.
-          </p>
-
-          <hr style="border:none;border-top:1px solid #2a2020;margin:24px 0">
-
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:900;text-transform:uppercase;margin-bottom:16px;color:#fff">Export Data</h3>
-          
-          <button class="btn btn-orange" style="width:100%" onclick="exportData()">
-            📥 Download as JSON
-          </button>
-          <p style="font-size:.85rem;color:#a89890;line-height:1.5;margin-top:12px">
-            Export all inquiries as a JSON file for backup or analysis.
-          </p>
-        </div>
-      </div>
-    </div>
+<!-- ══ PASSWORD GATE ══ -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-logo">Annie Lee's<br><span style="color:var(--red)">Control Center</span></div>
+    <div class="gate-sub">Owner access only</div>
+    <input class="gate-input" id="gate-pw" type="password" placeholder="Enter password" autocomplete="current-password" />
+    <button class="gate-btn" onclick="checkPassword()">Unlock →</button>
+    <div class="gate-error" id="gate-error">Wrong password. Try again.</div>
   </div>
+</div>
 
-  <script>
-    // Tab switching
-    function switchTab(tabName) {
-      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-      document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-      document.getElementById(tabName).classList.add('active');
-      event.target.closest('.nav-item').classList.add('active');
-    }
+<!-- ══ APP ══ -->
+<div id="app">
 
-    // Toggle handled inquiries
-    function toggleHandled() {
-      const handled = document.getElementById('handled-inquiries');
-      const toggle = document.getElementById('handled-toggle');
-      if (handled.style.display === 'none') {
-        handled.style.display = 'grid';
-        toggle.textContent = '▼';
-      } else {
-        handled.style.display = 'none';
-        toggle.textContent = '▶';
-      }
-    }
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="header-brand">Annie Lee's <span>Control Center</span></div>
+    <div class="header-right">
+      <div class="status-dot" title="Connected to GitHub"></div>
+      <a href="https://mbayingana777-del.github.io/annie-lee-soithern-kitchen-2/" target="_blank" class="view-site-btn">View Live Site ↗</a>
+      <button class="publish-btn" id="publish-btn" onclick="publishAll()">
+        <div class="spinner"></div>
+        <span class="btn-label">🚀 Publish Changes</span>
+      </button>
+    </div>
+  </header>
 
-    // Load and display inquiries
-    function loadInquiries() {
-      const inquiries = JSON.parse(localStorage.getItem('foodtruck_inquiries') || '[]');
-      const openContainer = document.getElementById('open-inquiries');
-      const handledContainer = document.getElementById('handled-inquiries');
-      
-      const openInquiries = inquiries.filter(i => i.status === 'new');
-      const handledInquiries = inquiries.filter(i => i.status === 'handled');
+  <!-- SIDEBAR -->
+  <aside class="app-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Overview</div>
+      <div class="nav-item active" onclick="switchTab('dashboard')" data-tab="dashboard">
+        <span class="nav-icon">📊</span> Dashboard
+      </div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Edit Pages</div>
+      <div class="nav-item" onclick="switchTab('images')" data-tab="images">
+        <span class="nav-icon">🖼️</span> Images
+      </div>
+      <div class="nav-item" onclick="switchTab('menu')" data-tab="menu">
+        <span class="nav-icon">🍗</span> Menu Items
+      </div>
+      <div class="nav-item" onclick="switchTab('location')" data-tab="location">
+        <span class="nav-icon">📍</span> Location & Hours
+      </div>
+      <div class="nav-item" onclick="switchTab('catering')" data-tab="catering">
+        <span class="nav-icon">🍽️</span> Catering Prices
+      </div>
+      <div class="nav-item" onclick="switchTab('foodtruck')" data-tab="foodtruck">
+        <span class="nav-icon">🚚</span> Food Truck
+      </div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Inquiries</div>
+      <div class="nav-item" onclick="switchTab('bookings')" data-tab="bookings">
+        <span class="nav-icon">📅</span> Bookings <span id="booking-badge" style="margin-left:auto;background:var(--red);color:#fff;font-size:.7rem;font-weight:800;padding:2px 7px;border-radius:999px;display:none">0</span>
+      </div>
+      <div class="nav-item" onclick="switchTab('catering-req')" data-tab="catering-req">
+        <span class="nav-icon">📋</span> Catering Requests <span id="catering-badge" style="margin-left:auto;background:var(--red);color:#fff;font-size:.7rem;font-weight:800;padding:2px 7px;border-radius:999px;display:none">0</span>
+      </div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">
+      <div class="nav-item" onclick="switchTab('settings')" data-tab="settings">
+        <span class="nav-icon">⚙️</span> Settings
+      </div>
+      <div class="nav-item" onclick="logout()" style="color:#f87171">
+        <span class="nav-icon">🔒</span> Lock Hub
+      </div>
+    </div>
+  </aside>
 
-      // Update badge
-      document.getElementById('booking-count').textContent = openInquiries.length;
-      document.getElementById('handled-count').textContent = handledInquiries.length;
+  <!-- MAIN -->
+  <main class="app-main">
 
-      // Render open inquiries
-      if (openInquiries.length === 0) {
-        openContainer.innerHTML = `
-          <div class="empty-state">
-            <div class="empty-state-icon">📭</div>
-            <h3>No new inquiries</h3>
-            <p>Check back after your next booking form submission.</p>
-          </div>
-        `;
-      } else {
-        openContainer.innerHTML = openInquiries.map(inquiry => createInquiryCard(inquiry, true)).join('');
-      }
-
-      // Render handled inquiries
-      if (handledInquiries.length === 0) {
-        handledContainer.innerHTML = `
-          <div class="empty-state">
-            <div class="empty-state-icon">✅</div>
-            <h3>No handled inquiries yet</h3>
-            <p>Inquiries you close will appear here.</p>
-          </div>
-        `;
-      } else {
-        handledContainer.innerHTML = handledInquiries.map(inquiry => createInquiryCard(inquiry, false)).join('');
-      }
-    }
-
-    // Create inquiry card HTML
-    function createInquiryCard(inquiry, isOpen) {
-      const date = new Date(inquiry.event_date).toLocaleDateString();
-      const time = inquiry.event_time || 'TBD';
-      
-      return `
-        <div class="inquiry-card">
-          <div class="inquiry-header">
-            <div class="inquiry-name">${inquiry.name}</div>
-            <span class="inquiry-status ${isOpen ? 'status-new' : 'status-handled'}">
-              ${isOpen ? 'New' : 'Handled'}
-            </span>
-          </div>
-          
-          <div class="inquiry-detail">
-            <span class="inquiry-detail-label">📞 Phone:</span>
-            <span class="inquiry-detail-value"><a href="tel:${inquiry.phone}">${inquiry.phone}</a></span>
-          </div>
-          
-          <div class="inquiry-detail">
-            <span class="inquiry-detail-label">📧 Email:</span>
-            <span class="inquiry-detail-value"><a href="mailto:${inquiry.email}">${inquiry.email}</a></span>
-          </div>
-          
-          <div class="inquiry-detail">
-            <span class="inquiry-detail-label">📅 Event Type:</span>
-            <span class="inquiry-detail-value">${inquiry.event_type}</span>
-          </div>
-          
-          <div class="inquiry-detail">
-            <span class="inquiry-detail-label">📆 Date & Time:</span>
-            <span class="inquiry-detail-value">${date} at ${time}</span>
-          </div>
-          
-          <div class="inquiry-detail">
-            <span class="inquiry-detail-label">👥 Guests:</span>
-            <span class="inquiry-detail-value">${inquiry.guests}</span>
-          </div>
-          
-          <div class="inquiry-detail">
-            <span class="inquiry-detail-label">📍 Location:</span>
-            <span class="inquiry-detail-value">${inquiry.location}</span>
-          </div>
-          
-          ${inquiry.budget ? `
-            <div class="inquiry-detail">
-              <span class="inquiry-detail-label">💰 Budget:</span>
-              <span class="inquiry-detail-value">${inquiry.budget}</span>
-            </div>
-          ` : ''}
-          
-          ${inquiry.notes ? `
-            <div class="inquiry-detail-label" style="margin-top:12px">Notes:</div>
-            <div class="inquiry-notes">${inquiry.notes}</div>
-          ` : ''}
-          
-          <div class="inquiry-actions">
-            ${isOpen ? `
-              <button class="btn btn-success btn-small" onclick="closeInquiry(${inquiry.id})">✓ Close</button>
-            ` : ''}
-            <button class="btn btn-danger btn-small" onclick="deleteInquiry(${inquiry.id})">🗑 Delete</button>
-          </div>
+    <!-- ── DASHBOARD ── -->
+    <div class="tab-pane active" id="tab-dashboard">
+      <div class="page-title">Dashboard</div>
+      <div class="page-desc">Welcome back. Here's a quick overview.</div>
+      <div class="stats-grid">
+        <div class="stat-card" onclick="switchTab('bookings')">
+          <div class="stat-num" id="stat-open-bookings">0</div>
+          <div class="stat-label">Open Bookings</div>
+          <span class="stat-badge badge-red">Needs attention</span>
         </div>
-      `;
+        <div class="stat-card" onclick="switchTab('catering-req')">
+          <div class="stat-num" id="stat-open-catering">0</div>
+          <div class="stat-label">Catering Requests</div>
+          <span class="stat-badge badge-red">Needs attention</span>
+        </div>
+        <div class="stat-card" onclick="switchTab('bookings')">
+          <div class="stat-num" id="stat-closed-bookings">0</div>
+          <div class="stat-label">Closed Bookings</div>
+          <span class="stat-badge badge-green">Handled</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="stat-total">0</div>
+          <div class="stat-label">Total Inquiries</div>
+          <span class="stat-badge badge-green">All time</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="icon">⚡</span> Quick Actions</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <button class="btn btn-red" onclick="switchTab('bookings')">📅 View Bookings</button>
+          <button class="btn btn-dark" onclick="switchTab('menu')">🍗 Edit Menu</button>
+          <button class="btn btn-dark" onclick="switchTab('images')">🖼️ Update Images</button>
+          <button class="btn btn-dark" onclick="switchTab('location')">📍 Edit Hours</button>
+          <button class="btn btn-dark" onclick="publishAll()">🚀 Publish Site</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="icon">🔗</span> Site Links</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a href="https://mbayingana777-del.github.io/annie-lee-soithern-kitchen-2/" target="_blank" class="btn btn-dark">🏠 Home</a>
+          <a href="https://mbayingana777-del.github.io/annie-lee-soithern-kitchen-2/menu.html" target="_blank" class="btn btn-dark">🍗 Menu</a>
+          <a href="https://mbayingana777-del.github.io/annie-lee-soithern-kitchen-2/catering.html" target="_blank" class="btn btn-dark">🍽️ Catering</a>
+          <a href="https://mbayingana777-del.github.io/annie-lee-soithern-kitchen-2/foodtruck.html" target="_blank" class="btn btn-dark">🚚 Food Truck</a>
+          <a href="https://formspree.io/forms/xkoadknl/submissions" target="_blank" class="btn btn-dark">📥 Formspree</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── IMAGES ── -->
+    <div class="tab-pane" id="tab-images">
+      <div class="page-title">Images</div>
+      <div class="page-desc">Update image URLs for each section. Paste a direct image link (Unsplash, Google Drive, etc.) and click Publish.</div>
+      <div class="card">
+        <div class="card-title"><span class="icon">🏠</span> Homepage Images</div>
+        <div class="img-grid" id="img-grid-home"></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="icon">🚚</span> Food Truck Images</div>
+        <div class="img-grid" id="img-grid-truck"></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:4px">
+        <button class="btn btn-red" onclick="saveImages()">💾 Save Images</button>
+        <button class="btn btn-dark" onclick="publishAll()">🚀 Publish to Site</button>
+      </div>
+    </div>
+
+    <!-- ── MENU ── -->
+    <div class="tab-pane" id="tab-menu">
+      <div class="page-title">Menu Items</div>
+      <div class="page-desc">Edit item names, descriptions, and prices. Changes publish to the live menu page.</div>
+      <div id="menu-editor"></div>
+      <div style="display:flex;gap:10px;margin-top:8px">
+        <button class="btn btn-red" onclick="saveMenu()">💾 Save Menu</button>
+        <button class="btn btn-dark" onclick="publishAll()">🚀 Publish to Site</button>
+      </div>
+    </div>
+
+    <!-- ── LOCATION ── -->
+    <div class="tab-pane" id="tab-location">
+      <div class="page-title">Location & Hours</div>
+      <div class="page-desc">Update your address, phone number, and business hours.</div>
+      <div class="card">
+        <div class="card-title"><span class="icon">📍</span> Store Info</div>
+        <div class="field-row">
+          <div class="field"><label>Business Name</label><input id="loc-name" type="text" /></div>
+          <div class="field"><label>Phone Number</label><input id="loc-phone" type="tel" /></div>
+        </div>
+        <div class="field"><label>Address</label><input id="loc-address" type="text" /></div>
+        <div class="field"><label>Tagline / Description</label><textarea id="loc-desc"></textarea></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="icon">🕐</span> Business Hours</div>
+        <div id="hours-editor"></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:4px">
+        <button class="btn btn-red" onclick="saveLocation()">💾 Save Location</button>
+        <button class="btn btn-dark" onclick="publishAll()">🚀 Publish to Site</button>
+      </div>
+    </div>
+
+    <!-- ── CATERING PRICES ── -->
+    <div class="tab-pane" id="tab-catering">
+      <div class="page-title">Catering Prices</div>
+      <div class="page-desc">Update half pan and full pan prices. Changes publish to the catering page.</div>
+      <div class="card">
+        <div class="card-title"><span class="icon">½</span> Half Pan Prices <button class="btn btn-sm btn-dark" style="margin-left:auto" onclick="addCateringItem('half')">+ Add Item</button></div>
+        <div class="menu-item-row" style="background:transparent;border:none;padding:0 14px 8px;font-size:.72rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.06em">
+          <span>Item Name</span><span style="grid-column:2/4">Price</span>
+        </div>
+        <div id="half-pan-editor"></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="icon">⬛</span> Full Pan Prices <button class="btn btn-sm btn-dark" style="margin-left:auto" onclick="addCateringItem('full')">+ Add Item</button></div>
+        <div class="menu-item-row" style="background:transparent;border:none;padding:0 14px 8px;font-size:.72rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.06em">
+          <span>Item Name</span><span style="grid-column:2/4">Price</span>
+        </div>
+        <div id="full-pan-editor"></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:4px">
+        <button class="btn btn-red" onclick="saveCatering()">💾 Save Prices</button>
+        <button class="btn btn-dark" onclick="publishAll()">🚀 Publish to Site</button>
+      </div>
+    </div>
+
+    <!-- ── FOOD TRUCK ── -->
+    <div class="tab-pane" id="tab-foodtruck">
+      <div class="page-title">Food Truck</div>
+      <div class="page-desc">Manage your food truck schedule and calendar embed.</div>
+      <div class="card">
+        <div class="card-title"><span class="icon">📅</span> Google Calendar</div>
+        <p style="color:var(--muted);font-size:.9rem;margin-bottom:16px">Your food truck schedule is powered by Google Calendar. Add or edit events there and they appear on the site automatically.</p>
+        <a href="https://calendar.google.com" target="_blank" class="btn btn-red">Open Google Calendar ↗</a>
+        <div class="field" style="margin-top:20px">
+          <label>Calendar Embed URL (update if you switch calendars)</label>
+          <input id="cal-embed-url" type="text" placeholder="https://calendar.google.com/calendar/embed?src=..." />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="icon">🚚</span> Food Truck Info</div>
+        <div class="field"><label>Booking Email</label><input id="truck-email" type="email" /></div>
+        <div class="field"><label>Min. Guest Count</label><input id="truck-min-guests" type="number" placeholder="10" /></div>
+        <div class="field"><label>Service Area</label><input id="truck-area" type="text" placeholder="e.g. Ambridge, PA and surrounding areas" /></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:4px">
+        <button class="btn btn-red" onclick="saveFoodTruck()">💾 Save</button>
+        <button class="btn btn-dark" onclick="publishAll()">🚀 Publish to Site</button>
+      </div>
+    </div>
+
+    <!-- ── BOOKINGS ── -->
+    <div class="tab-pane" id="tab-bookings">
+      <div class="page-title">Food Truck Bookings</div>
+      <div class="page-desc">Inquiries submitted via the food truck booking form.</div>
+      <div style="display:flex;gap:10px;margin-bottom:20px">
+        <button class="btn btn-dark btn-sm" onclick="filterBookings('open')" id="filter-open">🔴 Open</button>
+        <button class="btn btn-dark btn-sm" onclick="filterBookings('closed')" id="filter-closed">✅ Closed</button>
+        <button class="btn btn-dark btn-sm" onclick="filterBookings('all')" id="filter-all">All</button>
+      </div>
+      <div id="bookings-list"></div>
+    </div>
+
+    <!-- ── CATERING REQUESTS ── -->
+    <div class="tab-pane" id="tab-catering-req">
+      <div class="page-title">Catering Requests</div>
+      <div class="page-desc">Inquiries submitted via the catering quote form.</div>
+      <div style="display:flex;gap:10px;margin-bottom:20px">
+        <button class="btn btn-dark btn-sm" onclick="filterCatering('open')" id="cat-filter-open">🔴 Open</button>
+        <button class="btn btn-dark btn-sm" onclick="filterCatering('closed')" id="cat-filter-closed">✅ Closed</button>
+        <button class="btn btn-dark btn-sm" onclick="filterCatering('all')" id="cat-filter-all">All</button>
+      </div>
+      <div id="catering-req-list"></div>
+    </div>
+
+    <!-- ── SETTINGS ── -->
+    <div class="tab-pane" id="tab-settings">
+      <div class="page-title">Settings</div>
+      <div class="page-desc">Configure your hub and GitHub connection.</div>
+      <div class="card">
+        <div class="card-title"><span class="icon">🔑</span> GitHub Connection</div>
+        <div class="field"><label>GitHub Personal Access Token</label><input id="gh-token" type="password" placeholder="ghp_..." /></div>
+        <div class="field"><label>GitHub Username</label><input id="gh-user" type="text" value="mbayingana777-del" /></div>
+        <div class="field"><label>Repository Name</label><input id="gh-repo" type="text" value="annie-lee-soithern-kitchen-2" /></div>
+        <div class="field"><label>Branch</label><input id="gh-branch" type="text" value="main" /></div>
+        <button class="btn btn-red" onclick="saveSettings()">💾 Save Settings</button>
+        <button class="btn btn-dark" style="margin-left:8px" onclick="testGitHub()">🔌 Test Connection</button>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="icon">🔒</span> Security</div>
+        <div class="settings-row">
+          <div><div class="settings-label">Hub Password</div><div class="settings-desc">Change the password to access this control center</div></div>
+          <button class="btn btn-dark btn-sm" onclick="changePassword()">Change</button>
+        </div>
+        <div class="settings-row">
+          <div><div class="settings-label">Clear All Local Data</div><div class="settings-desc">Reset all saved content in this browser</div></div>
+          <button class="btn btn-danger btn-sm" onclick="clearAllData()">Clear Data</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════════
+// CONFIG
+// ══════════════════════════════════════════════
+const DEFAULT_PASSWORD = 'AnnieLee2024';
+const GITHUB_TOKEN = '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';
+const GITHUB_USER  = 'mbayingana777-del';
+const GITHUB_REPO  = 'annie-lee-soithern-kitchen-2';
+const GITHUB_BRANCH = 'main';
+
+// ══════════════════════════════════════════════
+// PASSWORD GATE
+// ══════════════════════════════════════════════
+function checkPassword() {
+  const pw = document.getElementById('gate-pw').value;
+  const stored = localStorage.getItem('hub_password') || DEFAULT_PASSWORD;
+  if (pw === stored) {
+    document.getElementById('gate').classList.add('hidden');
+    document.getElementById('app').classList.add('visible');
+    initApp();
+  } else {
+    document.getElementById('gate-error').style.display = 'block';
+    document.getElementById('gate-pw').value = '';
+    document.getElementById('gate-pw').focus();
+  }
+}
+document.getElementById('gate-pw').addEventListener('keydown', e => { if (e.key === 'Enter') checkPassword(); });
+
+function logout() {
+  document.getElementById('gate').classList.remove('hidden');
+  document.getElementById('app').classList.remove('visible');
+  document.getElementById('gate-pw').value = '';
+}
+
+function changePassword() {
+  const np = prompt('Enter new password:');
+  if (np && np.length >= 4) {
+    localStorage.setItem('hub_password', np);
+    toast('Password updated', 'success');
+  } else if (np !== null) {
+    toast('Password must be at least 4 characters', 'error');
+  }
+}
+
+// ══════════════════════════════════════════════
+// TAB NAVIGATION
+// ══════════════════════════════════════════════
+function switchTab(name) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('tab-' + name)?.classList.add('active');
+  document.querySelector(`[data-tab="${name}"]`)?.classList.add('active');
+}
+
+// ══════════════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════════════
+function toast(msg, type = 'info', duration = 3500) {
+  const el = document.createElement('div');
+  el.className = `toast-item ${type}`;
+  const icons = { success: '✅', error: '❌', info: 'ℹ️' };
+  el.innerHTML = `<span>${icons[type]||'ℹ️'}</span><span>${msg}</span>`;
+  document.getElementById('toast').appendChild(el);
+  setTimeout(() => {
+    el.style.animation = 'slideOut .3s ease forwards';
+    setTimeout(() => el.remove(), 300);
+  }, duration);
+}
+
+// ══════════════════════════════════════════════
+// DATA STORE
+// ══════════════════════════════════════════════
+function getData(key, fallback) {
+  try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch { return fallback; }
+}
+function setData(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
+
+// ══════════════════════════════════════════════
+// DEFAULT DATA
+// ══════════════════════════════════════════════
+const DEFAULT_LOCATION = {
+  name: "Annie Lee's Southern Kitchen",
+  phone: '724-385-0522',
+  address: '1601 Duss Ave, Ambridge, PA 15003',
+  desc: 'Hot, fresh soul food in Ambridge, PA.',
+  hours: {
+    Monday: { open: '', close: '', closed: true },
+    Tuesday: { open: '1:00 PM', close: '2:00 PM', closed: false },
+    Wednesday: { open: '11:00 AM', close: '7:00 PM', closed: false },
+    Thursday: { open: '11:00 AM', close: '7:00 PM', closed: false },
+    Friday: { open: '11:00 AM', close: '7:00 PM', closed: false },
+    Saturday: { open: '12:00 PM', close: '7:00 PM', closed: false },
+    Sunday: { open: '12:00 PM', close: '7:00 PM', closed: false },
+  }
+};
+
+const DEFAULT_MENU = [
+  { cat: 'Wings', items: [
+    { name: '3 Wings', desc: 'w/ 1 Side', price: '$12' },
+    { name: '6 Wings w/ 2 Sides', desc: 'Crispy southern wings', price: '$18' },
+    { name: '10 Wings w/ 2 Sides', desc: 'Crispy southern wings', price: '$25' },
+  ]},
+  { cat: 'Fish', items: [
+    { name: 'Fish Dinner', desc: '2 pieces w/ 2 sides', price: '$16' },
+    { name: 'Fish Sandwich', desc: 'On a toasted bun', price: '$10' },
+  ]},
+  { cat: 'Sides', items: [
+    { name: 'Mac & Cheese', desc: 'Baked to order', price: 'Sm $4 · Lg $7' },
+    { name: 'Collard Greens', desc: 'Slow cooked', price: 'Sm $4 · Lg $7' },
+    { name: 'Candied Yams', desc: 'Southern style', price: 'Sm $4 · Lg $7' },
+    { name: 'Potato Salad', desc: 'House made', price: 'Sm $4 · Lg $7' },
+  ]},
+];
+
+const DEFAULT_CATERING = {
+  half: [
+    { name: 'Baked Mac & Cheese', price: '$45' },
+    { name: 'Collard Greens', price: '$40' },
+    { name: 'Candied Yams', price: '$40' },
+    { name: 'Crispy Wings', price: '$65' },
+    { name: 'Slow-Smoked Ribs', price: '$80' },
+  ],
+  full: [
+    { name: 'Baked Mac & Cheese', price: '$80' },
+    { name: 'Collard Greens', price: '$70' },
+    { name: 'Candied Yams', price: '$70' },
+    { name: 'Crispy Wings', price: '$120' },
+    { name: 'Slow-Smoked Ribs', price: '$150' },
+  ]
+};
+
+const DEFAULT_IMAGES = {
+  home: [
+    { label: 'Hero Image', key: 'hero', url: 'assets/hero-food.jpg' },
+    { label: 'Gallery 1', key: 'gallery1', url: 'assets/food-gallery-1.jpg' },
+    { label: 'Gallery 2', key: 'gallery2', url: 'assets/food-gallery-2.jpg' },
+    { label: 'Gallery 3', key: 'gallery3', url: 'assets/food-gallery-3.jpg' },
+  ],
+  truck: [
+    { label: 'Food Truck Hero', key: 'truck-hero', url: 'assets/food-truck-hero.jpg' },
+    { label: 'Chicken Dinner', key: 'chicken', url: 'assets/chicken-dinner.jpg' },
+    { label: 'Fish Dinner', key: 'fish', url: 'assets/fish-dinner.jpg' },
+  ]
+};
+
+const DEFAULT_FOODTRUCK = {
+  email: 'mbayingana777@gmail.com',
+  minGuests: 10,
+  area: 'Ambridge, PA and surrounding areas',
+  calUrl: 'https://calendar.google.com/calendar/embed?src=mbayingana777%40gmail.com&ctz=America%2FNew_York'
+};
+
+// ══════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════
+function initApp() {
+  loadSettings();
+  renderImages();
+  renderMenu();
+  renderLocation();
+  renderCatering();
+  renderFoodTruck();
+  renderBookings('open');
+  renderCateringReqs('open');
+  updateDashboardStats();
+}
+
+// ══════════════════════════════════════════════
+// SETTINGS
+// ══════════════════════════════════════════════
+function loadSettings() {
+  const s = getData('hub_settings', {});
+  document.getElementById('gh-token').value = s.token || GITHUB_TOKEN;
+  document.getElementById('gh-user').value = s.user || GITHUB_USER;
+  document.getElementById('gh-repo').value = s.repo || GITHUB_REPO;
+  document.getElementById('gh-branch').value = s.branch || GITHUB_BRANCH;
+}
+function saveSettings() {
+  setData('hub_settings', {
+    token: document.getElementById('gh-token').value,
+    user: document.getElementById('gh-user').value,
+    repo: document.getElementById('gh-repo').value,
+    branch: document.getElementById('gh-branch').value,
+  });
+  toast('Settings saved', 'success');
+}
+function getSettings() {
+  const s = getData('hub_settings', {});
+  return {
+    token: s.token || GITHUB_TOKEN,
+    user: s.user || GITHUB_USER,
+    repo: s.repo || GITHUB_REPO,
+    branch: s.branch || GITHUB_BRANCH,
+  };
+}
+
+// ══════════════════════════════════════════════
+// IMAGES
+// ══════════════════════════════════════════════
+function renderImages() {
+  const imgs = getData('hub_images', DEFAULT_IMAGES);
+  renderImgGrid('img-grid-home', imgs.home);
+  renderImgGrid('img-grid-truck', imgs.truck);
+}
+
+function renderImgGrid(containerId, items) {
+  const c = document.getElementById(containerId);
+  c.innerHTML = items.map((img, i) => `
+    <div class="img-slot">
+      <img class="img-slot-preview" src="${img.url}" onerror="this.src='https://placehold.co/400x140/141010/6e5e58?text=No+Image'" />
+      <div class="img-slot-label">${img.label}</div>
+      <input class="img-slot-url" data-key="${img.key}" value="${img.url}" placeholder="Paste image URL..." oninput="previewImg(this)" />
+    </div>
+  `).join('');
+}
+
+function previewImg(input) {
+  const preview = input.closest('.img-slot').querySelector('.img-slot-preview');
+  preview.src = input.value || 'https://placehold.co/400x140/141010/6e5e58?text=No+Image';
+}
+
+function saveImages() {
+  const imgs = getData('hub_images', DEFAULT_IMAGES);
+  document.querySelectorAll('#img-grid-home .img-slot-url').forEach(inp => {
+    const item = imgs.home.find(i => i.key === inp.dataset.key);
+    if (item) item.url = inp.value;
+  });
+  document.querySelectorAll('#img-grid-truck .img-slot-url').forEach(inp => {
+    const item = imgs.truck.find(i => i.key === inp.dataset.key);
+    if (item) item.url = inp.value;
+  });
+  setData('hub_images', imgs);
+  toast('Images saved — click Publish to go live', 'success');
+}
+
+// ══════════════════════════════════════════════
+// MENU
+// ══════════════════════════════════════════════
+function renderMenu() {
+  const menu = getData('hub_menu', DEFAULT_MENU);
+  const c = document.getElementById('menu-editor');
+  c.innerHTML = menu.map((cat, ci) => `
+    <div class="menu-cat-header">${cat.cat}</div>
+    ${cat.items.map((item, ii) => `
+      <div class="menu-item-row">
+        <input value="${item.name}" placeholder="Item name" data-ci="${ci}" data-ii="${ii}" data-field="name" onchange="updateMenuItem(this)" />
+        <input value="${item.desc}" placeholder="Description" data-ci="${ci}" data-ii="${ii}" data-field="desc" onchange="updateMenuItem(this)" />
+        <input value="${item.price}" placeholder="Price" data-ci="${ci}" data-ii="${ii}" data-field="price" onchange="updateMenuItem(this)" style="text-align:center" />
+        <button class="btn btn-danger btn-sm" onclick="removeMenuItem(${ci},${ii})">✕</button>
+      </div>
+    `).join('')}
+    <button class="btn btn-dark btn-sm" style="margin-bottom:8px" onclick="addMenuItem(${ci})">+ Add to ${cat.cat}</button>
+  `).join('');
+}
+
+function updateMenuItem(input) {
+  const menu = getData('hub_menu', DEFAULT_MENU);
+  menu[input.dataset.ci].items[input.dataset.ii][input.dataset.field] = input.value;
+  setData('hub_menu', menu);
+}
+
+function addMenuItem(ci) {
+  const menu = getData('hub_menu', DEFAULT_MENU);
+  menu[ci].items.push({ name: 'New Item', desc: '', price: '$0' });
+  setData('hub_menu', menu);
+  renderMenu();
+}
+
+function removeMenuItem(ci, ii) {
+  const menu = getData('hub_menu', DEFAULT_MENU);
+  menu[ci].items.splice(ii, 1);
+  setData('hub_menu', menu);
+  renderMenu();
+}
+
+function saveMenu() {
+  toast('Menu saved — click Publish to go live', 'success');
+}
+
+// ══════════════════════════════════════════════
+// LOCATION
+// ══════════════════════════════════════════════
+function renderLocation() {
+  const loc = getData('hub_location', DEFAULT_LOCATION);
+  document.getElementById('loc-name').value = loc.name;
+  document.getElementById('loc-phone').value = loc.phone;
+  document.getElementById('loc-address').value = loc.address;
+  document.getElementById('loc-desc').value = loc.desc;
+
+  const c = document.getElementById('hours-editor');
+  c.innerHTML = Object.entries(loc.hours).map(([day, h]) => `
+    <div class="hours-row">
+      <div class="hours-day">${day}</div>
+      <input type="text" value="${h.open}" placeholder="Open (e.g. 11:00 AM)" data-day="${day}" data-field="open" onchange="updateHours(this)" style="background:#0f0f0f;border:1px solid var(--border2);border-radius:6px;padding:8px 10px;color:#f0ebe6;font-size:.875rem" ${h.closed ? 'disabled style="opacity:.4;background:#0f0f0f;border:1px solid var(--border2);border-radius:6px;padding:8px 10px;color:#f0ebe6;font-size:.875rem"' : ''} />
+      <input type="text" value="${h.close}" placeholder="Close (e.g. 7:00 PM)" data-day="${day}" data-field="close" onchange="updateHours(this)" style="background:#0f0f0f;border:1px solid var(--border2);border-radius:6px;padding:8px 10px;color:#f0ebe6;font-size:.875rem" ${h.closed ? 'disabled style="opacity:.4;background:#0f0f0f;border:1px solid var(--border2);border-radius:6px;padding:8px 10px;color:#f0ebe6;font-size:.875rem"' : ''} />
+      <label class="hours-closed"><input type="checkbox" ${h.closed ? 'checked' : ''} data-day="${day}" onchange="toggleClosed(this)" /> Closed</label>
+    </div>
+  `).join('');
+}
+
+function updateHours(input) {
+  const loc = getData('hub_location', DEFAULT_LOCATION);
+  loc.hours[input.dataset.day][input.dataset.field] = input.value;
+  setData('hub_location', loc);
+}
+
+function toggleClosed(checkbox) {
+  const loc = getData('hub_location', DEFAULT_LOCATION);
+  loc.hours[checkbox.dataset.day].closed = checkbox.checked;
+  setData('hub_location', loc);
+  renderLocation();
+}
+
+function saveLocation() {
+  const loc = getData('hub_location', DEFAULT_LOCATION);
+  loc.name = document.getElementById('loc-name').value;
+  loc.phone = document.getElementById('loc-phone').value;
+  loc.address = document.getElementById('loc-address').value;
+  loc.desc = document.getElementById('loc-desc').value;
+  setData('hub_location', loc);
+  toast('Location saved — click Publish to go live', 'success');
+}
+
+// ══════════════════════════════════════════════
+// CATERING PRICES
+// ══════════════════════════════════════════════
+function renderCatering() {
+  const cat = getData('hub_catering', DEFAULT_CATERING);
+  renderPanEditor('half-pan-editor', cat.half, 'half');
+  renderPanEditor('full-pan-editor', cat.full, 'full');
+}
+
+function renderPanEditor(containerId, items, pan) {
+  document.getElementById(containerId).innerHTML = items.map((item, i) => `
+    <div class="price-row-edit">
+      <input value="${item.name}" placeholder="Item name" data-pan="${pan}" data-i="${i}" data-field="name" onchange="updateCateringItem(this)" />
+      <input value="${item.price}" placeholder="Price" data-pan="${pan}" data-i="${i}" data-field="price" onchange="updateCateringItem(this)" style="text-align:center" />
+      <button class="btn btn-danger btn-sm" onclick="removeCateringItem('${pan}',${i})">✕</button>
+    </div>
+  `).join('');
+}
+
+function updateCateringItem(input) {
+  const cat = getData('hub_catering', DEFAULT_CATERING);
+  cat[input.dataset.pan][input.dataset.i][input.dataset.field] = input.value;
+  setData('hub_catering', cat);
+}
+
+function addCateringItem(pan) {
+  const cat = getData('hub_catering', DEFAULT_CATERING);
+  cat[pan].push({ name: 'New Item', price: '$0' });
+  setData('hub_catering', cat);
+  renderCatering();
+}
+
+function removeCateringItem(pan, i) {
+  const cat = getData('hub_catering', DEFAULT_CATERING);
+  cat[pan].splice(i, 1);
+  setData('hub_catering', cat);
+  renderCatering();
+}
+
+function saveCatering() {
+  toast('Catering prices saved — click Publish to go live', 'success');
+}
+
+// ══════════════════════════════════════════════
+// FOOD TRUCK
+// ══════════════════════════════════════════════
+function renderFoodTruck() {
+  const ft = getData('hub_foodtruck', DEFAULT_FOODTRUCK);
+  document.getElementById('truck-email').value = ft.email;
+  document.getElementById('truck-min-guests').value = ft.minGuests;
+  document.getElementById('truck-area').value = ft.area;
+  document.getElementById('cal-embed-url').value = ft.calUrl;
+}
+
+function saveFoodTruck() {
+  setData('hub_foodtruck', {
+    email: document.getElementById('truck-email').value,
+    minGuests: document.getElementById('truck-min-guests').value,
+    area: document.getElementById('truck-area').value,
+    calUrl: document.getElementById('cal-embed-url').value,
+  });
+  toast('Food truck settings saved — click Publish to go live', 'success');
+}
+
+// ══════════════════════════════════════════════
+// BOOKINGS
+// ══════════════════════════════════════════════
+let bookingFilter = 'open';
+let cateringFilter = 'open';
+
+function renderBookings(filter) {
+  bookingFilter = filter;
+  const all = getData('foodtruck_inquiries', []);
+  const filtered = filter === 'all' ? all : all.filter(b => (filter === 'open') ? b.status !== 'closed' : b.status === 'closed');
+  const c = document.getElementById('bookings-list');
+
+  ['open','closed','all'].forEach(f => document.getElementById(`filter-${f}`)?.classList.toggle('btn-red', f === filter));
+
+  if (!filtered.length) {
+    c.innerHTML = `<div class="empty-state"><div class="empty-icon">📭</div><p>${filter === 'open' ? 'No open bookings right now.' : 'No closed bookings yet.'}</p></div>`;
+    return;
+  }
+
+  c.innerHTML = filtered.map((b, i) => `
+    <div class="booking-card ${b.status === 'closed' ? 'closed' : 'open'}">
+      <div class="booking-header">
+        <div>
+          <div class="booking-name">${b.name || 'Unknown'}</div>
+          <div class="booking-type">${b.type || b.event_type || 'Food Truck Booking'}</div>
+        </div>
+        <div style="font-size:.78rem;color:var(--muted2)">${b.submittedAt ? new Date(b.submittedAt).toLocaleDateString() : ''}</div>
+      </div>
+      <div class="booking-meta">
+        <div class="booking-meta-item"><div class="booking-meta-label">Date</div><div class="booking-meta-val">${b.date || b.event_date || '—'}</div></div>
+        <div class="booking-meta-item"><div class="booking-meta-label">Guests</div><div class="booking-meta-val">${b.guests || b.guest_count || '—'}</div></div>
+        <div class="booking-meta-item"><div class="booking-meta-label">Budget</div><div class="booking-meta-val">${b.budget || '—'}</div></div>
+      </div>
+      <div style="background:#0f0f0f;border-radius:8px;padding:10px 12px;margin-bottom:14px;font-size:.875rem;color:var(--muted)">
+        📞 ${b.phone || '—'} &nbsp;·&nbsp; ✉️ ${b.email || '—'}<br>
+        📍 ${b.location || b.event_address || '—'}
+        ${b.notes ? `<br>💬 ${b.notes}` : ''}
+      </div>
+      <div class="booking-actions">
+        ${b.status !== 'closed'
+          ? `<button class="btn btn-red btn-sm" onclick="closeInquiry('foodtruck_inquiries',${all.indexOf(b)})">✅ Close Inquiry</button>`
+          : `<button class="btn btn-dark btn-sm" onclick="reopenInquiry('foodtruck_inquiries',${all.indexOf(b)})">↩ Reopen</button>`}
+        <a href="tel:${b.phone}" class="btn btn-dark btn-sm">📞 Call</a>
+        <a href="mailto:${b.email}" class="btn btn-dark btn-sm">✉️ Email</a>
+        <button class="btn btn-danger btn-sm" onclick="deleteInquiry('foodtruck_inquiries',${all.indexOf(b)})">🗑 Delete</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderCateringReqs(filter) {
+  cateringFilter = filter;
+  const all = getData('catering_inquiries', []);
+  const filtered = filter === 'all' ? all : all.filter(b => (filter === 'open') ? b.status !== 'closed' : b.status === 'closed');
+  const c = document.getElementById('catering-req-list');
+
+  ['open','closed','all'].forEach(f => document.getElementById(`cat-filter-${f}`)?.classList.toggle('btn-red', f === filter));
+
+  if (!filtered.length) {
+    c.innerHTML = `<div class="empty-state"><div class="empty-icon">📭</div><p>${filter === 'open' ? 'No open catering requests.' : 'No closed requests yet.'}</p></div>`;
+    return;
+  }
+
+  c.innerHTML = filtered.map((b, i) => `
+    <div class="booking-card ${b.status === 'closed' ? 'closed' : 'open'}">
+      <div class="booking-header">
+        <div>
+          <div class="booking-name">${b.name || 'Unknown'}</div>
+          <div class="booking-type">Catering Request · ${b.guest_count || '—'} guests</div>
+        </div>
+        <div style="font-size:.78rem;color:var(--muted2)">${b.submittedAt ? new Date(b.submittedAt).toLocaleDateString() : ''}</div>
+      </div>
+      <div class="booking-meta">
+        <div class="booking-meta-item"><div class="booking-meta-label">Event Date</div><div class="booking-meta-val">${b.event_date || '—'}</div></div>
+        <div class="booking-meta-item"><div class="booking-meta-label">Guests</div><div class="booking-meta-val">${b.guest_count || '—'}</div></div>
+        <div class="booking-meta-item"><div class="booking-meta-label">Phone</div><div class="booking-meta-val">${b.phone || '—'}</div></div>
+      </div>
+      <div style="background:#0f0f0f;border-radius:8px;padding:10px 12px;margin-bottom:14px;font-size:.875rem;color:var(--muted)">
+        ✉️ ${b.email || '—'}
+        ${b.details ? `<br>💬 ${b.details}` : ''}
+      </div>
+      <div class="booking-actions">
+        ${b.status !== 'closed'
+          ? `<button class="btn btn-red btn-sm" onclick="closeInquiry('catering_inquiries',${all.indexOf(b)})">✅ Close Inquiry</button>`
+          : `<button class="btn btn-dark btn-sm" onclick="reopenInquiry('catering_inquiries',${all.indexOf(b)})">↩ Reopen</button>`}
+        <a href="tel:${b.phone}" class="btn btn-dark btn-sm">📞 Call</a>
+        <a href="mailto:${b.email}" class="btn btn-dark btn-sm">✉️ Email</a>
+        <button class="btn btn-danger btn-sm" onclick="deleteInquiry('catering_inquiries',${all.indexOf(b)})">🗑 Delete</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function closeInquiry(key, idx) {
+  const all = getData(key, []);
+  all[idx].status = 'closed';
+  setData(key, all);
+  updateDashboardStats();
+  key === 'foodtruck_inquiries' ? renderBookings(bookingFilter) : renderCateringReqs(cateringFilter);
+  toast('Inquiry closed', 'success');
+}
+
+function reopenInquiry(key, idx) {
+  const all = getData(key, []);
+  all[idx].status = 'open';
+  setData(key, all);
+  updateDashboardStats();
+  key === 'foodtruck_inquiries' ? renderBookings(bookingFilter) : renderCateringReqs(cateringFilter);
+  toast('Inquiry reopened', 'info');
+}
+
+function deleteInquiry(key, idx) {
+  if (!confirm('Delete this inquiry? This cannot be undone.')) return;
+  const all = getData(key, []);
+  all.splice(idx, 1);
+  setData(key, all);
+  updateDashboardStats();
+  key === 'foodtruck_inquiries' ? renderBookings(bookingFilter) : renderCateringReqs(cateringFilter);
+  toast('Inquiry deleted', 'info');
+}
+
+function filterBookings(f) { renderBookings(f); }
+function filterCatering(f) { renderCateringReqs(f); }
+
+// ══════════════════════════════════════════════
+// DASHBOARD STATS
+// ══════════════════════════════════════════════
+function updateDashboardStats() {
+  const bookings = getData('foodtruck_inquiries', []);
+  const catering = getData('catering_inquiries', []);
+  const openB = bookings.filter(b => b.status !== 'closed').length;
+  const openC = catering.filter(b => b.status !== 'closed').length;
+  const closedB = bookings.filter(b => b.status === 'closed').length;
+  const total = bookings.length + catering.length;
+
+  document.getElementById('stat-open-bookings').textContent = openB;
+  document.getElementById('stat-open-catering').textContent = openC;
+  document.getElementById('stat-closed-bookings').textContent = closedB;
+  document.getElementById('stat-total').textContent = total;
+
+  const bb = document.getElementById('booking-badge');
+  const cb = document.getElementById('catering-badge');
+  bb.textContent = openB; bb.style.display = openB ? 'inline' : 'none';
+  cb.textContent = openC; cb.style.display = openC ? 'inline' : 'none';
+}
+
+// ══════════════════════════════════════════════
+// GITHUB API — PUBLISH
+// ══════════════════════════════════════════════
+async function getFileSHA(path, cfg) {
+  const res = await fetch(`https://api.github.com/repos/${cfg.user}/${cfg.repo}/contents/${path}?ref=${cfg.branch}`, {
+    headers: { Authorization: `token ${cfg.token}`, Accept: 'application/vnd.github.v3+json' }
+  });
+  if (!res.ok) return null;
+  const data = await res.json();
+  return data.sha || null;
+}
+
+async function pushFile(path, content, message, cfg) {
+  const sha = await getFileSHA(path, cfg);
+  const body = { message, content: btoa(unescape(encodeURIComponent(content))), branch: cfg.branch };
+  if (sha) body.sha = sha;
+  const res = await fetch(`https://api.github.com/repos/${cfg.user}/${cfg.repo}/contents/${path}`, {
+    method: 'PUT',
+    headers: { Authorization: `token ${cfg.token}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  return res.ok;
+}
+
+async function fetchCurrentFile(path, cfg) {
+  const res = await fetch(`https://api.github.com/repos/${cfg.user}/${cfg.repo}/contents/${path}?ref=${cfg.branch}`, {
+    headers: { Authorization: `token ${cfg.token}`, Accept: 'application/vnd.github.v3+json' }
+  });
+  if (!res.ok) return null;
+  const data = await res.json();
+  return decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
+}
+
+function generateDataJS() {
+  const location = getData('hub_location', DEFAULT_LOCATION);
+  const menu = getData('hub_menu', DEFAULT_MENU);
+  const catering = getData('hub_catering', DEFAULT_CATERING);
+  const images = getData('hub_images', DEFAULT_IMAGES);
+  const foodtruck = getData('hub_foodtruck', DEFAULT_FOODTRUCK);
+
+  return `/* AUTO-GENERATED by Annie Lee Hub — ${new Date().toISOString()} */
+window.SITE_DATA = ${JSON.stringify({ location, menu, catering, images, foodtruck }, null, 2)};
+`;
+}
+
+async function publishAll() {
+  const btn = document.getElementById('publish-btn');
+  btn.classList.add('loading');
+
+  try {
+    const cfg = getSettings();
+    if (!cfg.token) { toast('No GitHub token — go to Settings', 'error'); btn.classList.remove('loading'); return; }
+
+    const dataJS = generateDataJS();
+    const ok = await pushFile('site-data.js', dataJS, '🚀 Hub publish: update site data', cfg);
+
+    if (ok) {
+      toast('Published! Site will update in ~60 seconds.', 'success', 5000);
+    } else {
+      toast('Publish failed — check token in Settings', 'error');
     }
+  } catch(e) {
+    toast('Error: ' + e.message, 'error');
+  }
 
-    // Close inquiry (move to handled)
-    function closeInquiry(id) {
-      let inquiries = JSON.parse(localStorage.getItem('foodtruck_inquiries') || '[]');
-      inquiries = inquiries.map(i => i.id === id ? {...i, status: 'handled'} : i);
-      localStorage.setItem('foodtruck_inquiries', JSON.stringify(inquiries));
-      loadInquiries();
-    }
+  btn.classList.remove('loading');
+}
 
-    // Delete inquiry
-    function deleteInquiry(id) {
-      if (confirm('Are you sure you want to delete this inquiry?')) {
-        let inquiries = JSON.parse(localStorage.getItem('foodtruck_inquiries') || '[]');
-        inquiries = inquiries.filter(i => i.id !== id);
-        localStorage.setItem('foodtruck_inquiries', JSON.stringify(inquiries));
-        loadInquiries();
-      }
-    }
+async function testGitHub() {
+  const cfg = getSettings();
+  toast('Testing connection...', 'info', 2000);
+  try {
+    const res = await fetch(`https://api.github.com/repos/${cfg.user}/${cfg.repo}`, {
+      headers: { Authorization: `token ${cfg.token}` }
+    });
+    if (res.ok) { toast('✅ GitHub connected successfully!', 'success'); }
+    else { toast('❌ Connection failed — check token & repo name', 'error'); }
+  } catch(e) {
+    toast('❌ Network error: ' + e.message, 'error');
+  }
+}
 
-    // Clear all data
-    function clearAllData() {
-      if (confirm('Are you sure? This will delete ALL inquiries. This cannot be undone.')) {
-        localStorage.removeItem('foodtruck_inquiries');
-        loadInquiries();
-      }
-    }
+function clearAllData() {
+  if (!confirm('This will clear all saved content from this browser. Are you sure?')) return;
+  const keep = localStorage.getItem('hub_password');
+  localStorage.clear();
+  if (keep) localStorage.setItem('hub_password', keep);
+  toast('Data cleared', 'info');
+  initApp();
+}
 
-    // Export data
-    function exportData() {
-      const inquiries = JSON.parse(localStorage.getItem('foodtruck_inquiries') || '[]');
-      const dataStr = JSON.stringify(inquiries, null, 2);
-      const dataBlob = new Blob([dataStr], {type: 'application/json'});
-      const url = URL.createObjectURL(dataBlob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `annie-lee-inquiries-${new Date().toISOString().split('T')[0]}.json`;
-      link.click();
-      URL.revokeObjectURL(url);
-    }
-
-    // Go back to site
-    function goHome() {
-      window.location.href = 'index.html';
-    }
-
-    // Load inquiries on page load
-    loadInquiries();
-
-    // Reload inquiries every 5 seconds to show real-time updates
-    setInterval(loadInquiries, 5000);
-  </script>
+// ══════════════════════════════════════════════
+// LISTEN FOR FORM SUBMISSIONS (cross-tab)
+// ══════════════════════════════════════════════
+window.addEventListener('storage', e => {
+  if (e.key === 'foodtruck_inquiries' || e.key === 'catering_inquiries') {
+    renderBookings(bookingFilter);
+    renderCateringReqs(cateringFilter);
+    updateDashboardStats();
+    toast('New inquiry received!', 'info');
+  }
+});
+</script>
 </body>
 </html>
