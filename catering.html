@@ -444,5 +444,35 @@
     }
   </script>
 
+  <!-- Sanity CMS Integration -->
+  <script src="sanity-client.js"></script>
+  <script>
+    (async () => {
+      const prices = await window.sanity.getCateringPrices();
+      if (!prices || !prices.length) return;
+
+      const halfContainer = document.querySelector('[data-sanity="half-pan-prices"]');
+      const fullContainer = document.querySelector('[data-sanity="full-pan-prices"]');
+
+      if (halfContainer) {
+        halfContainer.innerHTML = prices.map(p => `
+          <div class="price-row">
+            <span class="price-row-name">${p.name}</span>
+            <span class="price-row-amount">${p.halfPan}</span>
+          </div>
+        `).join('');
+      }
+
+      if (fullContainer) {
+        fullContainer.innerHTML = prices.map(p => `
+          <div class="price-row">
+            <span class="price-row-name">${p.name}</span>
+            <span class="price-row-amount">${p.fullPan}</span>
+          </div>
+        `).join('');
+      }
+    })();
+  </script>
+
 </body>
 </html>

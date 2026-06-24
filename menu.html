@@ -1149,5 +1149,36 @@ window.addEventListener('DOMContentLoaded', () => {
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="lead-capture.js"></script>
+
+  <!-- Sanity CMS Integration -->
+  <script src="sanity-client.js"></script>
+  <script>
+    (async () => {
+      const items = await window.sanity.getMenuItems();
+      if (!items || !items.length) return;
+
+      // Group by category
+      const grouped = items.reduce((acc, item) => {
+        if (!acc[item.category]) acc[item.category] = [];
+        acc[item.category].push(item);
+        return acc;
+      }, {});
+
+      // Update each category container
+      Object.entries(grouped).forEach(([cat, items]) => {
+        const container = document.querySelector(`[data-sanity-category="${cat}"]`);
+        if (!container) return;
+        container.innerHTML = items.map(item => `
+          <div class="item-card">
+            <div class="item-info">
+              <div class="item-name">${item.name}</div>
+              <div class="item-desc">${item.description || ''}</div>
+            </div>
+            <div class="item-price">${item.price}</div>
+          </div>
+        `).join('');
+      });
+    })();
+  </script>
 </body>
 </html>

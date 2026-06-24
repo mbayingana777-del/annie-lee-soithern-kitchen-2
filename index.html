@@ -1013,5 +1013,27 @@
   <!-- Lead Capture & CRM Integration -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="lead-capture.js"></script>
+
+  <!-- Sanity CMS Integration -->
+  <script src="sanity-client.js"></script>
+  <script>
+    (async () => {
+      const settings = await window.sanity.getSiteSettings();
+      if (!settings) return;
+
+      // Update phone numbers
+      document.querySelectorAll('[data-sanity="phone"]').forEach(el => el.textContent = settings.phone);
+
+      // Update address
+      document.querySelectorAll('[data-sanity="address"]').forEach(el => el.textContent = settings.address);
+
+      // Update hours
+      const days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+      days.forEach(day => {
+        const el = document.querySelector(`[data-sanity="hours-${day}"]`);
+        if (el && settings.hours) el.textContent = settings.hours[day];
+      });
+    })();
+  </script>
 </body>
 </html>
